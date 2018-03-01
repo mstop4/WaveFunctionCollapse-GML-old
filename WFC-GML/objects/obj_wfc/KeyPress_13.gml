@@ -12,15 +12,23 @@ var cur_cell = cur_cell_data[0];
 var cur_cell_x = cur_cell_data[1];
 var cur_cell_y = cur_cell_data[2];
 
-visited[cur_cell_x, cur_cell_y] = true;
+if (cur_cell <> -1)
+{
+	visited[cur_cell_x, cur_cell_y] = true;
 
-// Collapse 
-ds_list_shuffle(cur_cell);
-var selected_value = cur_cell[| 0];
-ds_list_empty(cur_cell);
-cur_cell[| 0] = selected_value;
+	// Collapse 
+	ds_list_shuffle(cur_cell);
+	var selected_value = cur_cell[| 0];
+	ds_list_clear(cur_cell);
+	cur_cell[| 0] = selected_value;
 
-print_log(cur_cell[| 0], ", ", cur_cell_x, ", ", cur_cell_y);
+	print_log(cur_cell[| 0], ", ", cur_cell_x, ", ", cur_cell_y);
+}
+
+else
+{
+	print_log("Done!");
+}
 
 // Propagate
 
