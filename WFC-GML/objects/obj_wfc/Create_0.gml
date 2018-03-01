@@ -1,10 +1,9 @@
-// Get 16-autotile map constraints
+process_stack = ds_stack_create();
 
+// Get tile constraints
 tile_constraints = -1;
 json_map = -1;
 num_tiles = 0;
-tilemap_width = 6;
-tilemap_height = 6;
 
 var file = file_text_open_read("16-tile.json");
 

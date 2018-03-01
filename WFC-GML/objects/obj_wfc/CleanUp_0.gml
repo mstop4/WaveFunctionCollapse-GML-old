@@ -8,3 +8,4 @@ for (var i=0; i<tilemap_height; i++)
 }
 
 ds_grid_destroy(tilemap_grid);
+ds_stack_destroy(process_stack);
