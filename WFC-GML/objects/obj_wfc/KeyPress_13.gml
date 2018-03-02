@@ -67,7 +67,7 @@ while (true)
 			{
 				var cur_tile = cur_cell[| i];
 				var cur_constraints = tile_constraints[| cur_tile];
-				var ok = false;
+				var ok;
 			
 				var cur_tile_constraint, neighbour_cell, neighbour_tile, neighbour_constraints,
 					neighbour_tile_constraint, done;
@@ -77,26 +77,25 @@ while (true)
 				{
 					cur_tile_constraint = cur_constraints[| 0];
 					neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y-1];
+					ok = false;
 				
 					for (var k=0; k<ds_list_size(neighbour_cell); k++)
 					{
 						neighbour_tile = neighbour_cell[| k];
 						neighbour_constraints = tile_constraints[| neighbour_tile];
 						neighbour_tile_constraint = neighbour_constraints[| 2];
-						done = false;
 				
-						for (var j=0; j<ds_list_size(cur_tile_constraint); j++)
+						if (cur_tile_constraint == neighbour_tile_constraint)
 						{
-							if (ds_list_find_index(neighbour_tile_constraint,cur_tile_constraint[| j]))
-							{
-								ok = true;
-								done = true;
-								break;
-							}
-						}
-					
-						if (done)
+							ok = true;
 							break;
+						}
+					}
+					
+					if (!ok)
+					{
+						ds_list_delete(cur_cell, i);
+						continue;
 					}
 				}
 			
@@ -105,26 +104,25 @@ while (true)
 				{
 					cur_tile_constraint = cur_constraints[| 1];
 					neighbour_cell = tilemap_grid[# cur_cell_x+1, cur_cell_y];
+					ok = false;
 				
 					for (var k=0; k<ds_list_size(neighbour_cell); k++)
 					{
 						neighbour_tile = neighbour_cell[| k];
 						neighbour_constraints = tile_constraints[| neighbour_tile];
 						neighbour_tile_constraint = neighbour_constraints[| 3];
-						done = false;
 				
-						for (var j=0; j<ds_list_size(cur_tile_constraint); j++)
+						if (cur_tile_constraint == neighbour_tile_constraint)
 						{
-							if (ds_list_find_index(neighbour_tile_constraint,cur_tile_constraint[| j]))
-							{
-								ok = true;
-								done = true;
-								break;
-							}
-						}
-					
-						if (done)
+							ok = true;
 							break;
+						}
+					}
+					
+					if (!ok)
+					{
+						ds_list_delete(cur_cell, i);
+						continue;
 					}
 				}
 			
@@ -133,26 +131,25 @@ while (true)
 				{
 					cur_tile_constraint = cur_constraints[| 2];
 					neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y+1];
+					ok = false;
 				
 					for (var k=0; k<ds_list_size(neighbour_cell); k++)
 					{
 						neighbour_tile = neighbour_cell[| k];
 						neighbour_constraints = tile_constraints[| neighbour_tile];
 						neighbour_tile_constraint = neighbour_constraints[| 0];
-						done = false;
 				
-						for (var j=0; j<ds_list_size(cur_tile_constraint); j++)
+						if (cur_tile_constraint == neighbour_tile_constraint)
 						{
-							if (ds_list_find_index(neighbour_tile_constraint,cur_tile_constraint[| j]))
-							{
-								ok = true;
-								done = true;
-								break;
-							}
-						}
-					
-						if (done)
+							ok = true;
 							break;
+						}
+					}
+					
+					if (!ok)
+					{
+						ds_list_delete(cur_cell, i);
+						continue;
 					}
 				}
 			
@@ -161,31 +158,27 @@ while (true)
 				{
 					cur_tile_constraint = cur_constraints[| 3];
 					neighbour_cell = tilemap_grid[# cur_cell_x-1, cur_cell_y];
+					ok = false;
 				
 					for (var k=0; k<ds_list_size(neighbour_cell); k++)
 					{
 						neighbour_tile = neighbour_cell[| k];
 						neighbour_constraints = tile_constraints[| neighbour_tile];
 						neighbour_tile_constraint = neighbour_constraints[| 1];
-						done = false;
-				
-						for (var j=0; j<ds_list_size(cur_tile_constraint); j++)
+
+						if (cur_tile_constraint == neighbour_tile_constraint)
 						{
-							if (ds_list_find_index(neighbour_tile_constraint,cur_tile_constraint[| j]))
-							{
-								ok = true;
-								done = true;
-								break;
-							}
-						}
-					
-						if (done)
+							ok = true;
 							break;
+						}
+					}
+					
+					if (!ok)
+					{
+						ds_list_delete(cur_cell, i);
+						continue;
 					}
 				}
-			
-				if (!ok)
-					ds_list_delete(cur_cell, i);
 			}
 		
 			// Up
@@ -216,7 +209,7 @@ while (true)
 			{
 				var data = tilemap_get(tilemap_layer, j, i);
 				var cell = tilemap_grid[# j, i];
-				data = tile_set_index(data,cell[| 0]);
+				data = tile_set_index(data,cell[| 0]+tile_index_offset);
 				tilemap_set(tilemap_layer, data, j, i);
 			}
 		}

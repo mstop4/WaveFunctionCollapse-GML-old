@@ -33,6 +33,16 @@
             "enumb": 13,
             "eventtype": 9,
             "m_owner": "2d39927f-71b7-47fa-8092-373531b9fd4f"
+        },
+        {
+            "id": "c6395011-fec1-46b3-b516-aa86ed498390",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 32,
+            "eventtype": 9,
+            "m_owner": "2d39927f-71b7-47fa-8092-373531b9fd4f"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -62,7 +72,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "3",
+            "value": "5",
             "varName": "tilemap_width",
             "varType": 1
         },
@@ -76,8 +86,50 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "3",
+            "value": "5",
             "varName": "tilemap_height",
+            "varType": 1
+        },
+        {
+            "id": "fb38a660-f724-44c8-9d07-fff9ccf1d0a4",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "4-tile.json",
+            "varName": "constraints_file",
+            "varType": 2
+        },
+        {
+            "id": "13886713-27b3-43af-8f49-73a5b5db4cbc",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1,
+            "value": "ts_4_test",
+            "varName": "tile_set",
+            "varType": 5
+        },
+        {
+            "id": "dd6b4285-c125-4214-a0bf-ebf3edc16bee",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "tile_index_offset",
             "varType": 1
         }
     ],

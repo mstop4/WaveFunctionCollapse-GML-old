@@ -1,13 +1,13 @@
 process_stack = ds_stack_create();
 tile_layer = layer_create(-1000);
-tilemap_layer = layer_tilemap_create(tile_layer,0,0,ts_16_test,tilemap_width,tilemap_height);
+tilemap_layer = layer_tilemap_create(tile_layer,0,0,tile_set,tilemap_width,tilemap_height);
 
 // Get tile constraints
 tile_constraints = -1;
 json_map = -1;
 num_tiles = 0;
 
-var file = file_text_open_read("16-tile.json");
+var file = file_text_open_read(constraints_file);
 
 if (file)
 {
