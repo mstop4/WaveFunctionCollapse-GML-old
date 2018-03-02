@@ -3,7 +3,7 @@ for (var i=0; i<tilemap_height; i++)
 	for (var j=0; j<tilemap_width; j++)
 	{
 		var cur_list = tilemap_grid[# j, i];
-		
+	
 		for (var k=0; k<num_tiles; k++)
 			cur_list[| k] = k;
 	}
@@ -95,6 +95,11 @@ while (true)
 					if (!ok)
 					{
 						ds_list_delete(cur_cell, i);
+						for (var i=0; i<tilemap_height; i++)
+						{
+							for (var j=0; j<tilemap_width; j++)
+								visited[j,i] = false;
+						}
 						continue;
 					}
 				}
@@ -122,6 +127,11 @@ while (true)
 					if (!ok)
 					{
 						ds_list_delete(cur_cell, i);
+						for (var i=0; i<tilemap_height; i++)
+						{
+							for (var j=0; j<tilemap_width; j++)
+								visited[j,i] = false;
+						}
 						continue;
 					}
 				}
@@ -149,6 +159,11 @@ while (true)
 					if (!ok)
 					{
 						ds_list_delete(cur_cell, i);
+						for (var i=0; i<tilemap_height; i++)
+						{
+							for (var j=0; j<tilemap_width; j++)
+								visited[j,i] = false;
+						}
 						continue;
 					}
 				}
@@ -176,6 +191,11 @@ while (true)
 					if (!ok)
 					{
 						ds_list_delete(cur_cell, i);
+						for (var i=0; i<tilemap_height; i++)
+						{
+							for (var j=0; j<tilemap_width; j++)
+								visited[j,i] = false;
+						}
 						continue;
 					}
 				}
