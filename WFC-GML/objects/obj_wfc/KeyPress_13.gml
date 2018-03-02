@@ -1,4 +1,5 @@
 inv_progress = 0;
+start_time = current_time;
 
 for (var i=0; i<tilemap_height; i++)
 {

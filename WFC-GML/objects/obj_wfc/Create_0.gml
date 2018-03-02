@@ -7,6 +7,8 @@ is_generating = false;
 my_state = genState.idle;
 visited = -1;
 inv_progress = 0;
+time_taken = -1;
+start_time = -1;
 
 // Get tile constraints
 tile_constraints = -1;

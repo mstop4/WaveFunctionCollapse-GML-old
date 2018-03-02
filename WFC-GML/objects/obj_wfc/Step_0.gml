@@ -50,8 +50,6 @@ if (my_state <> genState.idle)
 		
 		else
 		{
-			print_log("Done!");
-	
 			for (var i=0; i<tilemap_height; i++)
 			{
 				for (var j=0; j<tilemap_width; j++)
@@ -64,6 +62,7 @@ if (my_state <> genState.idle)
 			}
 		
 			my_state = genState.idle;
+			time_taken = current_time - start_time;
 		}
 	}
 	
