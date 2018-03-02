@@ -1,5 +1,7 @@
 inv_progress = 0;
 start_time = current_time;
+ds_stack_clear(process_stack);
+ds_queue_clear(finished_tiles_queue);
 
 for (var i=0; i<tilemap_height; i++)
 {
