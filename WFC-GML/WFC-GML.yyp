@@ -55,6 +55,22 @@
             }
         },
         {
+            "Key": "1d3c0739-d440-4f54-b990-775a29c6d063",
+            "Value": {
+                "id": "b411e432-0ae8-4b35-8dc9-320aa6620208",
+                "resourcePath": "datafiles_yy\\12-tile.json.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
+            "Key": "26380743-b724-46dd-a65f-42618dcf8c3f",
+            "Value": {
+                "id": "e0e63cdd-b517-4b6d-966a-dc5584c6ba1d",
+                "resourcePath": "tilesets\\ts_12_test\\ts_12_test.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "277f812f-dc6b-4245-89e4-9dd3a41e5206",
             "Value": {
                 "id": "6cb9a2e8-9e50-4953-afd2-f458bf74fa18",
@@ -100,6 +116,14 @@
                 "id": "ae6ba04b-331f-49c6-86a4-03729bfbc8d2",
                 "resourcePath": "scripts\\generate_16_tile_constraints\\generate_16_tile_constraints.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "7192954b-9088-466b-9cff-40370f328c9b",
+            "Value": {
+                "id": "eac977c6-0643-43da-89a6-a9b05b284625",
+                "resourcePath": "sprites\\spr_12_test\\spr_12_test.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
