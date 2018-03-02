@@ -1,4 +1,6 @@
 process_stack = ds_stack_create();
+tile_layer = layer_create(-1000);
+tilemap_layer = layer_tilemap_create(tile_layer,0,0,ts_16_test,tilemap_width,tilemap_height);
 
 // Get tile constraints
 tile_constraints = -1;
@@ -28,11 +30,5 @@ tilemap_grid = ds_grid_create(tilemap_width, tilemap_height);
 for (var i=0; i<tilemap_height; i++)
 {
 	for (var j=0; j<tilemap_width; j++)
-	{
 		tilemap_grid[# j, i] = ds_list_create();
-		var cur_list = tilemap_grid[# j, i];
-		
-		for (var k=0; k<num_tiles; k++)
-			cur_list[| k] = k;
-	}
 }

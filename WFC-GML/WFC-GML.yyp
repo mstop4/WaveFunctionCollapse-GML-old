@@ -87,6 +87,14 @@
             }
         },
         {
+            "Key": "6c03ac13-6bbc-4ee8-94eb-9487855ff174",
+            "Value": {
+                "id": "ae6ba04b-331f-49c6-86a4-03729bfbc8d2",
+                "resourcePath": "scripts\\generate_16_tile_constraints\\generate_16_tile_constraints.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "75ac291e-7061-4bcb-8e8a-3b3545332d41",
             "Value": {
                 "id": "fbd2c711-6bfb-40d8-a3c6-c360c14bde0a",
@@ -273,7 +281,8 @@
     ],
     "script_order": [
         "d07ed06e-3927-4e5a-b31e-0cd7204a29ce",
-        "02c6d5db-0429-43be-b8dd-b3597523a8a9"
+        "02c6d5db-0429-43be-b8dd-b3597523a8a9",
+        "6c03ac13-6bbc-4ee8-94eb-9487855ff174"
     ],
     "tutorial": ""
 }
