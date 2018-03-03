@@ -6,8 +6,7 @@ tile_layer = layer_create(-1000);
 tilemap_layer = layer_tilemap_create(tile_layer,0,0,tile_set,tilemap_width,tilemap_height);
 is_generating = false;
 dirty = false;
-restart_x = -1;
-restart_y = -1;
+visited = -1;
 my_state = genState.idle;
 inv_progress = 0;
 time_taken = -1;
@@ -36,13 +35,9 @@ file_text_close(file);
 
 // Init tilemap
 tilemap_grid = ds_grid_create(tilemap_width, tilemap_width);
-visited = ds_grid_create(tilemap_width, tilemap_width);
 
 for (var i=0; i<tilemap_height; i++)
 {
 	for (var j=0; j<tilemap_width; j++)
-	{
 		tilemap_grid[# j, i] = ds_list_create();
-		visited[# j, i] = ds_list_create();
-	}
 }
