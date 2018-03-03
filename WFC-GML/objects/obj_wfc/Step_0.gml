@@ -14,11 +14,7 @@ if (my_state <> genState.idle)
 			}
 		}
 		
-		for (var i=0; i<tilemap_height; i++)
-		{
-			for (var j=0; j<tilemap_width; j++)
-				visited[j,i] = false;
-		}
+		reset_visited();
 
 		// Find cells with lowest entropy
 		var cur_cell_data = pick_cell();
@@ -136,6 +132,8 @@ if (my_state <> genState.idle)
 			
 						var cur_tile_constraint, neighbour_cell, neighbour_tile, neighbour_constraints,
 							neighbour_tile_constraint, done;
+							
+						has_changed = false;
 			
 						// Up
 						if (cur_cell_y-1 >= 0)
@@ -160,13 +158,11 @@ if (my_state <> genState.idle)
 							if (!ok)
 							{
 								ds_list_delete(cur_cell, i);
+								i--;
 								entropy--;
+								has_changed = true;
 							
-								for (var i=0; i<tilemap_height; i++)
-								{
-									for (var j=0; j<tilemap_width; j++)
-										visited[j,i] = false;
-								}
+								reset_visited();
 							
 								if (realtime_tiling && ds_list_size(cur_cell) == 1)
 									ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
@@ -174,7 +170,7 @@ if (my_state <> genState.idle)
 						}
 			
 						// Right
-						if (cur_cell_x+1 < tilemap_width)
+						if (cur_cell_x+1 < tilemap_width && !has_changed)
 						{
 							cur_tile_constraint = cur_constraints[| 1];
 							neighbour_cell = tilemap_grid[# cur_cell_x+1, cur_cell_y];
@@ -196,13 +192,11 @@ if (my_state <> genState.idle)
 							if (!ok)
 							{
 								ds_list_delete(cur_cell, i);
-								entropy--;				
+								i--;
+								entropy--;
+								has_changed = true;			
 							
-								for (var i=0; i<tilemap_height; i++)
-								{
-									for (var j=0; j<tilemap_width; j++)
-										visited[j,i] = false;
-								}
+								reset_visited();
 							
 								if (realtime_tiling && ds_list_size(cur_cell) == 1)
 									ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
@@ -210,7 +204,7 @@ if (my_state <> genState.idle)
 						}
 			
 						// Down
-						if (cur_cell_y+1 < tilemap_height)
+						if (cur_cell_y+1 < tilemap_height && !has_changed)
 						{
 							cur_tile_constraint = cur_constraints[| 2];
 							neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y+1];
@@ -232,13 +226,11 @@ if (my_state <> genState.idle)
 							if (!ok)
 							{
 								ds_list_delete(cur_cell, i);
+								i--;
 								entropy--;
+								has_changed = true;
 							
-								for (var i=0; i<tilemap_height; i++)
-								{
-									for (var j=0; j<tilemap_width; j++)
-										visited[j,i] = false;
-								}
+								reset_visited();
 																			
 								if (realtime_tiling && ds_list_size(cur_cell) == 1)
 									ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
@@ -246,7 +238,7 @@ if (my_state <> genState.idle)
 						}
 			
 						// Left
-						if (cur_cell_x-1 >= 0)
+						if (cur_cell_x-1 >= 0 && !has_changed)
 						{
 							cur_tile_constraint = cur_constraints[| 3];
 							neighbour_cell = tilemap_grid[# cur_cell_x-1, cur_cell_y];
@@ -268,13 +260,11 @@ if (my_state <> genState.idle)
 							if (!ok)
 							{
 								ds_list_delete(cur_cell, i);
+								i--;
 								entropy--;
+								has_changed = true;
 							
-								for (var i=0; i<tilemap_height; i++)
-								{
-									for (var j=0; j<tilemap_width; j++)
-										visited[j,i] = false;
-								}
+								reset_visited();
 																			
 								if (realtime_tiling && ds_list_size(cur_cell) == 1)
 									ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);

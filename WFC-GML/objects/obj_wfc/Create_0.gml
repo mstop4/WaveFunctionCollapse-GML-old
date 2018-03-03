@@ -9,7 +9,7 @@ is_generating = false;
 visited = -1;
 my_state = genState.idle;
 entropy = 0;
-elephant = 0;
+has_changed = false;
 time_taken = -1;
 start_time = -1;
 
