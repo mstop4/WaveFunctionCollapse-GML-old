@@ -1,14 +1,15 @@
 //randomize();
 
-process_stack = ds_stack_create();
+process_stack = ds_list_create();
+stack_size = 0;
 finished_tiles_queue = ds_queue_create();
 tile_layer = layer_create(-1000);
 tilemap_layer = layer_tilemap_create(tile_layer,0,0,tile_set,tilemap_width,tilemap_height);
 is_generating = false;
-dirty = false;
 visited = -1;
 my_state = genState.idle;
-inv_progress = 0;
+entropy = 0;
+has_changed = false;
 time_taken = -1;
 start_time = -1;
 
