@@ -17,7 +17,11 @@ if (my_state <> genState.idle)
 		for (var i=0; i<tilemap_height; i++)
 		{
 			for (var j=0; j<tilemap_width; j++)
-				visited[j,i] = false;
+			{
+				var cur_visit = visited[# j,i];
+				ds_list_clear(cur_visit);
+				cur_visit[| 0] = false;
+			}
 		}
 
 		// Find cells with lowest entropy
@@ -29,7 +33,8 @@ if (my_state <> genState.idle)
 
 		if (cur_cell <> -1)
 		{
-			visited[cur_cell_x, cur_cell_y] = true;
+			var cur_visit = visited[# cur_cell_x, cur_cell_y];
+			cur_visit[| 0] = true;
 
 			// Collapse 
 			var cell_len = ds_list_size(cur_cell);
@@ -45,20 +50,20 @@ if (my_state <> genState.idle)
 			// Propagate
 
 			// Up
-			if (cur_cell_y-1 >= 0 && !visited[cur_cell_x, cur_cell_y-1])
-				ds_stack_push(process_stack, [cur_cell_x, cur_cell_y-1]);
+			if (cur_cell_y-1 >= 0)
+				ds_stack_push(process_stack, [cur_cell_x, cur_cell_y-1, 0]);
 
 			// Right
-			if (cur_cell_x+1 < tilemap_width && !visited[cur_cell_x+1, cur_cell_y])
-				ds_stack_push(process_stack, [cur_cell_x+1, cur_cell_y]);
+			if (cur_cell_x+1 < tilemap_width)
+				ds_stack_push(process_stack, [cur_cell_x+1, cur_cell_y, 0]);
 	
 			// Down
-			if (cur_cell_y+1 < tilemap_height && !visited[cur_cell_x, cur_cell_y+1])
-				ds_stack_push(process_stack, [cur_cell_x, cur_cell_y+1]);
+			if (cur_cell_y+1 < tilemap_height)
+				ds_stack_push(process_stack, [cur_cell_x, cur_cell_y+1, 0]);
 
 			// Left
-			if (cur_cell_x-1 >= 0 && !visited[cur_cell_x-1, cur_cell_y])
-				ds_stack_push(process_stack, [cur_cell_x-1, cur_cell_y]);
+			if (cur_cell_x-1 >= 0)
+				ds_stack_push(process_stack, [cur_cell_x-1, cur_cell_y, 0]);
 				
 			dirty = false;
 			my_state = genState.propagate;
@@ -100,6 +105,7 @@ if (my_state <> genState.idle)
 			var cur_cell_data = ds_stack_pop(process_stack);
 			var cur_cell_x = cur_cell_data[0];
 			var cur_cell_y = cur_cell_data[1];
+			var cur_cell_wave = cur_cell_data[2];
 			var cur_cell = tilemap_grid[# cur_cell_x, cur_cell_y];
 			
 			if (ds_list_size(cur_cell) == 0)
@@ -112,9 +118,11 @@ if (my_state <> genState.idle)
 			else if (ds_list_size(cur_cell) == 1)
 				exit;
 						
-			if (!visited[cur_cell_x, cur_cell_y])
+			var cur_visit = visited[# cur_cell_x, cur_cell_y];
+						
+			if (!cur_visit[| cur_cell_wave])
 			{
-				visited[cur_cell_x, cur_cell_y] = true;
+				cur_visit[| cur_cell_wave] = true;
 	
 				// Check neighbour constraints
 				for (var i=0; i<ds_list_size(cur_cell); i++)
@@ -151,9 +159,7 @@ if (my_state <> genState.idle)
 							ds_list_delete(cur_cell, i);
 							inv_progress--;
 							
-							dirty = true;
-							restart_x = cur_cell_x;
-							restart_y = cur_cell_y;
+							ds_stack_push(process_stack, [cur_cell_x, cur_cell_y, cur_cell_wave+1]);
 							
 							if (realtime_tiling && ds_list_size(cur_cell) == 1)
 								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
@@ -187,9 +193,7 @@ if (my_state <> genState.idle)
 							ds_list_delete(cur_cell, i);
 							inv_progress--;				
 							
-							dirty = true;
-							restart_x = cur_cell_x;
-							restart_y = cur_cell_y;
+							ds_stack_push(process_stack, [cur_cell_x, cur_cell_y, cur_cell_wave+1]);
 							
 							if (realtime_tiling && ds_list_size(cur_cell) == 1)
 								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
@@ -223,9 +227,7 @@ if (my_state <> genState.idle)
 							ds_list_delete(cur_cell, i);
 							inv_progress--;
 							
-							dirty = true;
-							restart_x = cur_cell_x;
-							restart_y = cur_cell_y;
+							ds_stack_push(process_stack, [cur_cell_x, cur_cell_y, cur_cell_wave+1]);
 																			
 							if (realtime_tiling && ds_list_size(cur_cell) == 1)
 								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
@@ -259,9 +261,7 @@ if (my_state <> genState.idle)
 							ds_list_delete(cur_cell, i);
 							inv_progress--;
 							
-							dirty = true;
-							restart_x = cur_cell_x;
-							restart_y = cur_cell_y;
+							ds_stack_push(process_stack, [cur_cell_x, cur_cell_y, cur_cell_wave+1]);
 																			
 							if (realtime_tiling && ds_list_size(cur_cell) == 1)
 								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
@@ -270,41 +270,44 @@ if (my_state <> genState.idle)
 						}
 					}
 				}
-		
+			
+				var cur_visit;
+			
 				// Up
-				if (cur_cell_y-1 >= 0 && !visited[cur_cell_x, cur_cell_y-1])
-					ds_stack_push(process_stack, [cur_cell_x, cur_cell_y-1]);
+				if (cur_cell_y-1 >= 0)
+				{
+					cur_visit = visited[# cur_cell_x, cur_cell_y-1];
+					if (!cur_visit[| cur_cell_wave])
+						ds_stack_push(process_stack, [cur_cell_x, cur_cell_y-1, cur_cell_wave]);
+				}
 
 				// Right
-				if (cur_cell_x+1 < tilemap_width && !visited[cur_cell_x+1, cur_cell_y])
-					ds_stack_push(process_stack, [cur_cell_x+1, cur_cell_y]);
+				if (cur_cell_x+1 < tilemap_width)
+				{
+					cur_visit = visited[# cur_cell_x+1, cur_cell_y];
+					if (!cur_visit[| cur_cell_wave])
+						ds_stack_push(process_stack, [cur_cell_x+1, cur_cell_y, cur_cell_wave]);
+				}
 	
 				// Down
-				if (cur_cell_y+1 < tilemap_height && !visited[cur_cell_x, cur_cell_y+1])
-					ds_stack_push(process_stack, [cur_cell_x, cur_cell_y+1]);
-
+				if (cur_cell_y+1 < tilemap_height)
+				{
+					cur_visit = visited[# cur_cell_x, cur_cell_y+1];
+					if (!cur_visit[| cur_cell_wave])
+						ds_stack_push(process_stack, [cur_cell_x, cur_cell_y+1, cur_cell_wave]);
+				}
+				
 				// Left
-				if (cur_cell_x-1 >= 0 && !visited[cur_cell_x-1, cur_cell_y])
-					ds_stack_push(process_stack, [cur_cell_x-1, cur_cell_y]);
+				if (cur_cell_x-1 >= 0)
+				{
+					cur_visit = visited[# cur_cell_x-1, cur_cell_y];
+					if (!cur_visit[| cur_cell_wave])
+						ds_stack_push(process_stack, [cur_cell_x-1, cur_cell_y, cur_cell_wave]);
+				}
 			}
 		}
 		
 		else
-		{
-			if (dirty)
-			{
-				for (var i=0; i<tilemap_height; i++)
-				{
-					for (var j=0; j<tilemap_width; j++)
-						visited[j,i] = false;
-				}
-				
-				ds_stack_push(process_stack, [restart_x, restart_y]);
-				dirty = false;
-			}
-			
-			else
-				my_state = genState.collapse;
-		}
+			my_state = genState.collapse;
 	}
 }
