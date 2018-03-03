@@ -120,7 +120,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "12-tile.json",
+            "value": "4-tile.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -134,7 +134,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_12_test",
+            "value": "ts_4_test",
             "varName": "tile_set",
             "varType": 5
         },
@@ -148,7 +148,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "4",
+            "value": "2",
             "varName": "tile_index_offset",
             "varType": 1
         },

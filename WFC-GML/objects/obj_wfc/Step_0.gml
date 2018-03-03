@@ -31,6 +31,130 @@ if (my_state <> genState.idle)
 			visited[cur_cell_x, cur_cell_y] = true;
 
 			// Collapse 
+			
+			// Eliminate invalid tile choices
+			/*for (var i=0; i<ds_list_size(cur_cell); i++)
+			{
+				var cur_tile = cur_cell[| i];
+				var cur_constraints = tile_constraints[| cur_tile];
+				var ok;
+			
+				var cur_tile_constraint, neighbour_cell, neighbour_tile, neighbour_constraints,
+					neighbour_tile_constraint, done;
+			
+				// Up
+				if (cur_cell_y-1 >= 0)
+				{
+					cur_tile_constraint = cur_constraints[| 0];
+					neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y-1];
+					ok = false;
+				
+					for (var k=0; k<ds_list_size(neighbour_cell); k++)
+					{
+						neighbour_tile = neighbour_cell[| k];
+						neighbour_constraints = tile_constraints[| neighbour_tile];
+						neighbour_tile_constraint = neighbour_constraints[| 2];
+				
+						if (cur_tile_constraint == neighbour_tile_constraint)
+						{
+							ok = true;
+							break;
+						}
+					}
+					
+					if (!ok)
+					{
+						ds_list_delete(cur_cell, i);
+						inv_progress--;
+						continue;
+					}
+				}
+			
+				// Right
+				if (cur_cell_x+1 < tilemap_width)
+				{
+					cur_tile_constraint = cur_constraints[| 1];
+					neighbour_cell = tilemap_grid[# cur_cell_x+1, cur_cell_y];
+					ok = false;
+				
+					for (var k=0; k<ds_list_size(neighbour_cell); k++)
+					{
+						neighbour_tile = neighbour_cell[| k];
+						neighbour_constraints = tile_constraints[| neighbour_tile];
+						neighbour_tile_constraint = neighbour_constraints[| 3];
+				
+						if (cur_tile_constraint == neighbour_tile_constraint)
+						{
+							ok = true;
+							break;
+						}
+					}
+					
+					if (!ok)
+					{
+						ds_list_delete(cur_cell, i);
+						inv_progress--;
+						continue;
+					}
+				}
+			
+				// Down
+				if (cur_cell_y+1 < tilemap_height)
+				{
+					cur_tile_constraint = cur_constraints[| 2];
+					neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y+1];
+					ok = false;
+				
+					for (var k=0; k<ds_list_size(neighbour_cell); k++)
+					{
+						neighbour_tile = neighbour_cell[| k];
+						neighbour_constraints = tile_constraints[| neighbour_tile];
+						neighbour_tile_constraint = neighbour_constraints[| 0];
+				
+						if (cur_tile_constraint == neighbour_tile_constraint)
+						{
+							ok = true;
+							break;
+						}
+					}
+					
+					if (!ok)
+					{
+						ds_list_delete(cur_cell, i);
+						inv_progress--;
+						continue;
+					}
+				}
+			
+				// Left
+				if (cur_cell_x-1 >= 0)
+				{
+					cur_tile_constraint = cur_constraints[| 3];
+					neighbour_cell = tilemap_grid[# cur_cell_x-1, cur_cell_y];
+					ok = false;
+				
+					for (var k=0; k<ds_list_size(neighbour_cell); k++)
+					{
+						neighbour_tile = neighbour_cell[| k];
+						neighbour_constraints = tile_constraints[| neighbour_tile];
+						neighbour_tile_constraint = neighbour_constraints[| 1];
+
+						if (cur_tile_constraint == neighbour_tile_constraint)
+						{
+							ok = true;
+							break;
+						}
+					}
+					
+					if (!ok)
+					{
+						ds_list_delete(cur_cell, i);
+						inv_progress--;
+						continue;
+					}
+				}
+			}*/
+			
 			var cell_len = ds_list_size(cur_cell);
 			inv_progress -= (cell_len - 1);
 			ds_list_shuffle(cur_cell);
@@ -59,7 +183,9 @@ if (my_state <> genState.idle)
 			if (cur_cell_x-1 >= 0)
 				ds_stack_push(process_stack, [cur_cell_x-1, cur_cell_y]);
 				
-			dirty = false;
+			has_changed = false;
+			restart_x = cur_cell_x;
+			restart_y = cur_cell_y;
 			my_state = genState.propagate;
 		}
 		
@@ -107,173 +233,149 @@ if (my_state <> genState.idle)
 				my_state = genState.idle;
 				exit;
 			}
-			
-			else if (ds_list_size(cur_cell) == 1)
-				exit;
 						
 			if (!visited[cur_cell_x, cur_cell_y])
 			{
 				visited[cur_cell_x, cur_cell_y] = true;
-	
-				// Check neighbour constraints
-				for (var i=0; i<ds_list_size(cur_cell); i++)
+				
+				if (ds_list_size(cur_cell) > 1)
 				{
-					var cur_tile = cur_cell[| i];
-					var cur_constraints = tile_constraints[| cur_tile];
-					var ok;
-			
-					var cur_tile_constraint, neighbour_cell, neighbour_tile, neighbour_constraints,
-						neighbour_tile_constraint, done;
-			
-					// Up
-					if (cur_cell_y-1 >= 0)
+					// Check neighbour constraints
+					for (var i=0; i<ds_list_size(cur_cell); i++)
 					{
-						cur_tile_constraint = cur_constraints[| 0];
-						neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y-1];
-						ok = false;
-				
-						for (var k=0; k<ds_list_size(neighbour_cell); k++)
-						{
-							neighbour_tile = neighbour_cell[| k];
-							neighbour_constraints = tile_constraints[| neighbour_tile];
-							neighbour_tile_constraint = neighbour_constraints[| 2];
-				
-							if (cur_tile_constraint == neighbour_tile_constraint)
-							{
-								ok = true;
-								break;
-							}
-						}
-					
-						if (!ok)
-						{
-							ds_list_delete(cur_cell, i);
-							inv_progress--;
-							
-							for (var i=0; i<tilemap_height; i++)
-							{
-								for (var j=0; j<tilemap_width; j++)
-									visited[j,i] = false;
-							}
-							
-							if (realtime_tiling && ds_list_size(cur_cell) == 1)
-								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
-						
-							continue;
-						}
-					}
+						var cur_tile = cur_cell[| i];
+						var cur_constraints = tile_constraints[| cur_tile];
+						var ok;
 			
-					// Right
-					if (cur_cell_x+1 < tilemap_width)
-					{
-						cur_tile_constraint = cur_constraints[| 1];
-						neighbour_cell = tilemap_grid[# cur_cell_x+1, cur_cell_y];
-						ok = false;
-				
-						for (var k=0; k<ds_list_size(neighbour_cell); k++)
-						{
-							neighbour_tile = neighbour_cell[| k];
-							neighbour_constraints = tile_constraints[| neighbour_tile];
-							neighbour_tile_constraint = neighbour_constraints[| 3];
-				
-							if (cur_tile_constraint == neighbour_tile_constraint)
-							{
-								ok = true;
-								break;
-							}
-						}
-					
-						if (!ok)
-						{
-							ds_list_delete(cur_cell, i);
-							inv_progress--;				
-							
-							for (var i=0; i<tilemap_height; i++)
-							{
-								for (var j=0; j<tilemap_width; j++)
-									visited[j,i] = false;
-							}
-							
-							if (realtime_tiling && ds_list_size(cur_cell) == 1)
-								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
-						
-							continue;
-						}
-					}
+						var cur_tile_constraint, neighbour_cell, neighbour_tile, neighbour_constraints,
+							neighbour_tile_constraint, done;
 			
-					// Down
-					if (cur_cell_y+1 < tilemap_height)
-					{
-						cur_tile_constraint = cur_constraints[| 2];
-						neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y+1];
-						ok = false;
-				
-						for (var k=0; k<ds_list_size(neighbour_cell); k++)
+						// Up
+						if (cur_cell_y-1 >= 0)
 						{
-							neighbour_tile = neighbour_cell[| k];
-							neighbour_constraints = tile_constraints[| neighbour_tile];
-							neighbour_tile_constraint = neighbour_constraints[| 0];
+							cur_tile_constraint = cur_constraints[| 0];
+							neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y-1];
+							ok = false;
 				
-							if (cur_tile_constraint == neighbour_tile_constraint)
+							for (var k=0; k<ds_list_size(neighbour_cell); k++)
 							{
-								ok = true;
-								break;
+								neighbour_tile = neighbour_cell[| k];
+								neighbour_constraints = tile_constraints[| neighbour_tile];
+								neighbour_tile_constraint = neighbour_constraints[| 2];
+				
+								if (cur_tile_constraint == neighbour_tile_constraint)
+								{
+									ok = true;
+									break;
+								}
+							}
+					
+							if (!ok)
+							{
+								ds_list_delete(cur_cell, i);
+								inv_progress--;
+							
+								has_changed++;
+							
+								if (realtime_tiling && ds_list_size(cur_cell) == 1)
+									ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
 							}
 						}
-					
-						if (!ok)
+			
+						// Right
+						if (cur_cell_x+1 < tilemap_width && !has_changed)
 						{
-							ds_list_delete(cur_cell, i);
-							inv_progress--;
-							
-							for (var i=0; i<tilemap_height; i++)
+							cur_tile_constraint = cur_constraints[| 1];
+							neighbour_cell = tilemap_grid[# cur_cell_x+1, cur_cell_y];
+							ok = false;
+				
+							for (var k=0; k<ds_list_size(neighbour_cell); k++)
 							{
-								for (var j=0; j<tilemap_width; j++)
-									visited[j,i] = false;
+								neighbour_tile = neighbour_cell[| k];
+								neighbour_constraints = tile_constraints[| neighbour_tile];
+								neighbour_tile_constraint = neighbour_constraints[| 3];
+				
+								if (cur_tile_constraint == neighbour_tile_constraint)
+								{
+									ok = true;
+									break;
+								}
 							}
+					
+							if (!ok)
+							{
+								ds_list_delete(cur_cell, i);
+								inv_progress--;				
+							
+								has_changed++;
+							
+								if (realtime_tiling && ds_list_size(cur_cell) == 1)
+									ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
+							}
+						}
+			
+						// Down
+						if (cur_cell_y+1 < tilemap_height && !has_changed)
+						{
+							cur_tile_constraint = cur_constraints[| 2];
+							neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y+1];
+							ok = false;
+				
+							for (var k=0; k<ds_list_size(neighbour_cell); k++)
+							{
+								neighbour_tile = neighbour_cell[| k];
+								neighbour_constraints = tile_constraints[| neighbour_tile];
+								neighbour_tile_constraint = neighbour_constraints[| 0];
+				
+								if (cur_tile_constraint == neighbour_tile_constraint)
+								{
+									ok = true;
+									break;
+								}
+							}
+					
+							if (!ok)
+							{
+								ds_list_delete(cur_cell, i);
+								inv_progress--;
+							
+								has_changed++;
 																			
-							if (realtime_tiling && ds_list_size(cur_cell) == 1)
-								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
-						
-							continue;
+								if (realtime_tiling && ds_list_size(cur_cell) == 1)
+									ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
+							}
 						}
-					}
 			
-					// Left
-					if (cur_cell_x-1 >= 0)
-					{
-						cur_tile_constraint = cur_constraints[| 3];
-						neighbour_cell = tilemap_grid[# cur_cell_x-1, cur_cell_y];
-						ok = false;
-				
-						for (var k=0; k<ds_list_size(neighbour_cell); k++)
+						// Left
+						if (cur_cell_x-1 >= 0 && !has_changed)
 						{
-							neighbour_tile = neighbour_cell[| k];
-							neighbour_constraints = tile_constraints[| neighbour_tile];
-							neighbour_tile_constraint = neighbour_constraints[| 1];
+							cur_tile_constraint = cur_constraints[| 3];
+							neighbour_cell = tilemap_grid[# cur_cell_x-1, cur_cell_y];
+							ok = false;
+				
+							for (var k=0; k<ds_list_size(neighbour_cell); k++)
+							{
+								neighbour_tile = neighbour_cell[| k];
+								neighbour_constraints = tile_constraints[| neighbour_tile];
+								neighbour_tile_constraint = neighbour_constraints[| 1];
 
-							if (cur_tile_constraint == neighbour_tile_constraint)
-							{
-								ok = true;
-								break;
+								if (cur_tile_constraint == neighbour_tile_constraint)
+								{
+									ok = true;
+									break;
+								}
 							}
-						}
 					
-						if (!ok)
-						{
-							ds_list_delete(cur_cell, i);
-							inv_progress--;
-							
-							for (var i=0; i<tilemap_height; i++)
+							if (!ok)
 							{
-								for (var j=0; j<tilemap_width; j++)
-									visited[j,i] = false;
-							}
+								ds_list_delete(cur_cell, i);
+								inv_progress--;
+							
+								has_changed++;
 																			
-							if (realtime_tiling && ds_list_size(cur_cell) == 1)
-								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
-						
-							continue;
+								if (realtime_tiling && ds_list_size(cur_cell) == 1)
+									ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
+							}
 						}
 					}
 				}
@@ -297,6 +399,21 @@ if (my_state <> genState.idle)
 		}
 		
 		else
-			my_state = genState.collapse;
+		{
+			if (has_changed)
+			{
+				for (var i=0; i<tilemap_height; i++)
+				{
+					for (var j=0; j<tilemap_width; j++)
+						visited[j,i] = false;
+				}
+				
+				ds_stack_push(process_stack, [restart_x, restart_y]);
+				has_changed = false;
+			}
+			
+			else
+				my_state = genState.collapse;
+		}
 	}
 }
