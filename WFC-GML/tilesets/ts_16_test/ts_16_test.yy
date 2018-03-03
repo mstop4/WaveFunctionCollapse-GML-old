@@ -5,16 +5,12 @@
     "name": "ts_16_test",
     "auto_tile_sets": [
         {
-            "id": "6820713a-a674-4008-9e92-5f640d7f57ed",
+            "id": "d04bbcb8-d2db-4645-9b18-0d3be38ff5fc",
             "modelName": "GMAutoTileSet",
             "mvc": "1.0",
             "closed_edge": false,
             "name": "autotile_1",
             "tiles": [
-                0,
-                1,
-                2,
-                3,
                 4,
                 5,
                 6,
@@ -26,7 +22,11 @@
                 12,
                 13,
                 14,
-                15
+                15,
+                16,
+                17,
+                18,
+                19
             ]
         }
     ],
@@ -62,7 +62,11 @@
             12,
             13,
             14,
-            15
+            15,
+            16,
+            17,
+            18,
+            19
         ],
         "SerialiseFrameCount": 1
     },
@@ -70,7 +74,7 @@
         
     ],
     "tile_animation_speed": 15,
-    "tile_count": 16,
+    "tile_count": 20,
     "tileheight": 32,
     "tilehsep": 0,
     "tilevsep": 0,

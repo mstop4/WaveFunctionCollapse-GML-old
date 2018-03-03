@@ -1,5 +1,7 @@
 inv_progress = 0;
 start_time = current_time;
+ds_stack_clear(process_stack);
+ds_queue_clear(finished_tiles_queue);
 
 for (var i=0; i<tilemap_height; i++)
 {
@@ -14,6 +16,8 @@ for (var i=0; i<tilemap_height; i++)
 		}
 	}
 }
+
+tilemap_clear(tilemap_layer,0);
 
 inv_progress -= tilemap_width*tilemap_height;
 my_state  = genState.collapse;

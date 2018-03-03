@@ -1,11 +1,13 @@
-randomize();
+//randomize();
 
 process_stack = ds_stack_create();
+finished_tiles_queue = ds_queue_create();
 tile_layer = layer_create(-1000);
 tilemap_layer = layer_tilemap_create(tile_layer,0,0,tile_set,tilemap_width,tilemap_height);
 is_generating = false;
-my_state = genState.idle;
+dirty = false;
 visited = -1;
+my_state = genState.idle;
 inv_progress = 0;
 time_taken = -1;
 start_time = -1;
@@ -24,7 +26,6 @@ if (file)
 	
 	if (json_map > -1)
 	{
-		show_debug_message("Success");
 		tile_constraints = json_map[? "default"];
 		num_tiles = ds_list_size(tile_constraints);
 	}
@@ -33,7 +34,7 @@ if (file)
 file_text_close(file);
 
 // Init tilemap
-tilemap_grid = ds_grid_create(tilemap_width, tilemap_height);
+tilemap_grid = ds_grid_create(tilemap_width, tilemap_width);
 
 for (var i=0; i<tilemap_height; i++)
 {
