@@ -25,135 +25,13 @@ if (my_state <> genState.idle)
 		var cur_cell = cur_cell_data[0];
 		var cur_cell_x = cur_cell_data[1];
 		var cur_cell_y = cur_cell_data[2];
+		
 
 		if (cur_cell <> -1)
 		{
 			visited[cur_cell_x, cur_cell_y] = true;
 
 			// Collapse 
-			
-			// Eliminate invalid tile choices
-			/*for (var i=0; i<ds_list_size(cur_cell); i++)
-			{
-				var cur_tile = cur_cell[| i];
-				var cur_constraints = tile_constraints[| cur_tile];
-				var ok;
-			
-				var cur_tile_constraint, neighbour_cell, neighbour_tile, neighbour_constraints,
-					neighbour_tile_constraint, done;
-			
-				// Up
-				if (cur_cell_y-1 >= 0)
-				{
-					cur_tile_constraint = cur_constraints[| 0];
-					neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y-1];
-					ok = false;
-				
-					for (var k=0; k<ds_list_size(neighbour_cell); k++)
-					{
-						neighbour_tile = neighbour_cell[| k];
-						neighbour_constraints = tile_constraints[| neighbour_tile];
-						neighbour_tile_constraint = neighbour_constraints[| 2];
-				
-						if (cur_tile_constraint == neighbour_tile_constraint)
-						{
-							ok = true;
-							break;
-						}
-					}
-					
-					if (!ok)
-					{
-						ds_list_delete(cur_cell, i);
-						inv_progress--;
-						continue;
-					}
-				}
-			
-				// Right
-				if (cur_cell_x+1 < tilemap_width)
-				{
-					cur_tile_constraint = cur_constraints[| 1];
-					neighbour_cell = tilemap_grid[# cur_cell_x+1, cur_cell_y];
-					ok = false;
-				
-					for (var k=0; k<ds_list_size(neighbour_cell); k++)
-					{
-						neighbour_tile = neighbour_cell[| k];
-						neighbour_constraints = tile_constraints[| neighbour_tile];
-						neighbour_tile_constraint = neighbour_constraints[| 3];
-				
-						if (cur_tile_constraint == neighbour_tile_constraint)
-						{
-							ok = true;
-							break;
-						}
-					}
-					
-					if (!ok)
-					{
-						ds_list_delete(cur_cell, i);
-						inv_progress--;
-						continue;
-					}
-				}
-			
-				// Down
-				if (cur_cell_y+1 < tilemap_height)
-				{
-					cur_tile_constraint = cur_constraints[| 2];
-					neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y+1];
-					ok = false;
-				
-					for (var k=0; k<ds_list_size(neighbour_cell); k++)
-					{
-						neighbour_tile = neighbour_cell[| k];
-						neighbour_constraints = tile_constraints[| neighbour_tile];
-						neighbour_tile_constraint = neighbour_constraints[| 0];
-				
-						if (cur_tile_constraint == neighbour_tile_constraint)
-						{
-							ok = true;
-							break;
-						}
-					}
-					
-					if (!ok)
-					{
-						ds_list_delete(cur_cell, i);
-						inv_progress--;
-						continue;
-					}
-				}
-			
-				// Left
-				if (cur_cell_x-1 >= 0)
-				{
-					cur_tile_constraint = cur_constraints[| 3];
-					neighbour_cell = tilemap_grid[# cur_cell_x-1, cur_cell_y];
-					ok = false;
-				
-					for (var k=0; k<ds_list_size(neighbour_cell); k++)
-					{
-						neighbour_tile = neighbour_cell[| k];
-						neighbour_constraints = tile_constraints[| neighbour_tile];
-						neighbour_tile_constraint = neighbour_constraints[| 1];
-
-						if (cur_tile_constraint == neighbour_tile_constraint)
-						{
-							ok = true;
-							break;
-						}
-					}
-					
-					if (!ok)
-					{
-						ds_list_delete(cur_cell, i);
-						inv_progress--;
-						continue;
-					}
-				}
-			}*/
 			
 			var cell_len = ds_list_size(cur_cell);
 			inv_progress -= (cell_len - 1);
@@ -183,6 +61,7 @@ if (my_state <> genState.idle)
 			if (cur_cell_x-1 >= 0 && !visited[cur_cell_x-1, cur_cell_y])
 				ds_stack_push(process_stack, [cur_cell_x-1, cur_cell_y]);
 				
+			dirty = false;
 			my_state = genState.propagate;
 		}
 		
@@ -263,11 +142,9 @@ if (my_state <> genState.idle)
 							ds_list_delete(cur_cell, i);
 							inv_progress--;
 							
-							for (var i=0; i<tilemap_height; i++)
-							{
-								for (var j=0; j<tilemap_width; j++)
-									visited[j,i] = false;
-							}
+							dirty = true;
+							restart_x = cur_cell_x;
+							restart_y = cur_cell_y;
 							
 							if (realtime_tiling && ds_list_size(cur_cell) == 1)
 								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
@@ -301,12 +178,10 @@ if (my_state <> genState.idle)
 							ds_list_delete(cur_cell, i);
 							inv_progress--;				
 							
-							for (var i=0; i<tilemap_height; i++)
-							{
-								for (var j=0; j<tilemap_width; j++)
-									visited[j,i] = false;
-							}
-													
+							dirty = true;
+							restart_x = cur_cell_x;
+							restart_y = cur_cell_y;
+							
 							if (realtime_tiling && ds_list_size(cur_cell) == 1)
 								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
 						
@@ -339,11 +214,9 @@ if (my_state <> genState.idle)
 							ds_list_delete(cur_cell, i);
 							inv_progress--;
 							
-							for (var i=0; i<tilemap_height; i++)
-							{
-								for (var j=0; j<tilemap_width; j++)
-									visited[j,i] = false;
-							}
+							dirty = true;
+							restart_x = cur_cell_x;
+							restart_y = cur_cell_y;
 																			
 							if (realtime_tiling && ds_list_size(cur_cell) == 1)
 								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
@@ -377,11 +250,9 @@ if (my_state <> genState.idle)
 							ds_list_delete(cur_cell, i);
 							inv_progress--;
 							
-							for (var i=0; i<tilemap_height; i++)
-							{
-								for (var j=0; j<tilemap_width; j++)
-									visited[j,i] = false;
-							}
+							dirty = true;
+							restart_x = cur_cell_x;
+							restart_y = cur_cell_y;
 																			
 							if (realtime_tiling && ds_list_size(cur_cell) == 1)
 								ds_queue_enqueue(finished_tiles_queue, [cur_cell_x, cur_cell_y]);
@@ -410,6 +281,21 @@ if (my_state <> genState.idle)
 		}
 		
 		else
-			my_state = genState.collapse;
+		{
+			if (dirty)
+			{
+				for (var i=0; i<tilemap_height; i++)
+				{
+					for (var j=0; j<tilemap_width; j++)
+						visited[j,i] = false;
+				}
+				
+				ds_stack_push(process_stack, [restart_x, restart_y]);
+				dirty = false;
+			}
+			
+			else
+				my_state = genState.collapse;
+		}
 	}
 }
