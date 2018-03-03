@@ -28,7 +28,6 @@ if (file)
 	
 	if (json_map > -1)
 	{
-		show_debug_message("Success");
 		tile_constraints = json_map[? "default"];
 		num_tiles = ds_list_size(tile_constraints);
 	}
