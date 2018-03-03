@@ -63,6 +63,16 @@
             "enumb": 0,
             "eventtype": 8,
             "m_owner": "2d39927f-71b7-47fa-8092-373531b9fd4f"
+        },
+        {
+            "id": "85760e47-301e-45e1-88dd-6939b990eaf5",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 8,
+            "eventtype": 9,
+            "m_owner": "2d39927f-71b7-47fa-8092-373531b9fd4f"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -120,7 +130,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "4-tile.json",
+            "value": "16-tile.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -134,7 +144,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_4_test",
+            "value": "ts_16_test",
             "varName": "tile_set",
             "varType": 5
         },
@@ -148,7 +158,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "2",
+            "value": "4",
             "varName": "tile_index_offset",
             "varType": 1
         },

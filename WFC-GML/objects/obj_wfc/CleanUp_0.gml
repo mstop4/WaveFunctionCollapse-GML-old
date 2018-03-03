@@ -8,7 +8,7 @@ for (var i=0; i<tilemap_height; i++)
 }
 
 ds_grid_destroy(tilemap_grid);
-ds_stack_destroy(process_stack);
+ds_list_destroy(process_stack);
 ds_queue_destroy(finished_tiles_queue);
 
 layer_destroy(tile_layer);
