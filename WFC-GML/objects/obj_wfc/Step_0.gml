@@ -32,7 +32,6 @@ if (my_state <> genState.idle)
 			visited[cur_cell_x, cur_cell_y] = true;
 
 			// Collapse 
-			
 			var cell_len = ds_list_size(cur_cell);
 			inv_progress -= (cell_len - 1);
 			ds_list_shuffle(cur_cell);
@@ -102,7 +101,17 @@ if (my_state <> genState.idle)
 			var cur_cell_x = cur_cell_data[0];
 			var cur_cell_y = cur_cell_data[1];
 			var cur_cell = tilemap_grid[# cur_cell_x, cur_cell_y];
-	
+			
+			if (ds_list_size(cur_cell) == 0)
+			{
+				show_message_async("Something went wrong");
+				my_state = genState.idle;
+				exit;
+			}
+			
+			else if (ds_list_size(cur_cell) == 1)
+				exit;
+						
 			if (!visited[cur_cell_x, cur_cell_y])
 			{
 				visited[cur_cell_x, cur_cell_y] = true;

@@ -17,5 +17,7 @@ for (var i=0; i<tilemap_height; i++)
 	}
 }
 
+tilemap_clear(tilemap_layer,0);
+
 inv_progress -= tilemap_width*tilemap_height;
 my_state  = genState.collapse;

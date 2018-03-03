@@ -92,7 +92,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "20",
+            "value": "3",
             "varName": "tilemap_width",
             "varType": 1
         },
@@ -106,7 +106,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "20",
+            "value": "3",
             "varName": "tilemap_height",
             "varType": 1
         },
@@ -120,7 +120,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "16-tile.json",
+            "value": "4-tile.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -134,7 +134,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_16_test",
+            "value": "ts_4_test",
             "varName": "tile_set",
             "varType": 5
         },
