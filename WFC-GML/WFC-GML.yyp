@@ -207,6 +207,14 @@
             }
         },
         {
+            "Key": "ae658935-9bf4-442a-8ace-3c043461a047",
+            "Value": {
+                "id": "339bb594-5fa2-40a6-92d0-77c5a3c66603",
+                "resourcePath": "scripts\\manual_entropy_count\\manual_entropy_count.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "b16dc7ea-7058-4b9e-80ad-1169d9cfa9ea",
             "Value": {
                 "id": "3820e7fc-7d25-45a8-b0ab-608b28dfe0d3",
@@ -268,6 +276,14 @@
                 "id": "c08b8b3c-431f-46da-8a19-25be5f3d0c5c",
                 "resourcePath": "views\\d2cd1945-8fb6-4195-953c-b2353c348343.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d7c4072f-736c-48e2-adef-9b0c9a6fe6ee",
+            "Value": {
+                "id": "7a44b8a0-6197-4e44-90ab-1aeb05afa412",
+                "resourcePath": "scripts\\reset_visited\\reset_visited.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -339,7 +355,9 @@
         "d07ed06e-3927-4e5a-b31e-0cd7204a29ce",
         "02c6d5db-0429-43be-b8dd-b3597523a8a9",
         "6c03ac13-6bbc-4ee8-94eb-9487855ff174",
-        "a2c54756-3a59-447e-9f3e-7d5799c89244"
+        "a2c54756-3a59-447e-9f3e-7d5799c89244",
+        "d7c4072f-736c-48e2-adef-9b0c9a6fe6ee",
+        "ae658935-9bf4-442a-8ace-3c043461a047"
     ],
     "tutorial": ""
 }

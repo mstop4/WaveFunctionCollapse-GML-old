@@ -6,12 +6,10 @@ finished_tiles_queue = ds_queue_create();
 tile_layer = layer_create(-1000);
 tilemap_layer = layer_tilemap_create(tile_layer,0,0,tile_set,tilemap_width,tilemap_height);
 is_generating = false;
-has_changed = false;
-restart_x = -1;
-restart_y = -1;
 visited = -1;
 my_state = genState.idle;
 entropy = 0;
+elephant = 0;
 time_taken = -1;
 start_time = -1;
 

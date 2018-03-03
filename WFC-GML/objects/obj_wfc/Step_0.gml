@@ -71,9 +71,6 @@ if (my_state <> genState.idle)
 				stack_size++;
 			}
 				
-			has_changed = false;
-			restart_x = cur_cell_x;
-			restart_y = cur_cell_y;
 			my_state = genState.propagate;
 		}
 		
@@ -177,7 +174,7 @@ if (my_state <> genState.idle)
 						}
 			
 						// Right
-						if (cur_cell_x+1 < tilemap_width && !has_changed)
+						if (cur_cell_x+1 < tilemap_width)
 						{
 							cur_tile_constraint = cur_constraints[| 1];
 							neighbour_cell = tilemap_grid[# cur_cell_x+1, cur_cell_y];
@@ -213,7 +210,7 @@ if (my_state <> genState.idle)
 						}
 			
 						// Down
-						if (cur_cell_y+1 < tilemap_height && !has_changed)
+						if (cur_cell_y+1 < tilemap_height)
 						{
 							cur_tile_constraint = cur_constraints[| 2];
 							neighbour_cell = tilemap_grid[# cur_cell_x, cur_cell_y+1];
@@ -249,7 +246,7 @@ if (my_state <> genState.idle)
 						}
 			
 						// Left
-						if (cur_cell_x-1 >= 0 && !has_changed)
+						if (cur_cell_x-1 >= 0)
 						{
 							cur_tile_constraint = cur_constraints[| 3];
 							neighbour_cell = tilemap_grid[# cur_cell_x-1, cur_cell_y];

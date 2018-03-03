@@ -12,13 +12,15 @@ for (var i=0; i<tilemap_height; i++)
 	
 		for (var k=0; k<num_tiles; k++)
 		{
-			cur_list[| k] = k;
+			ds_list_add(cur_list, k);
 			entropy++;
 		}
 	}
 }
 
+//manual_entropy_count();
+
 tilemap_clear(tilemap_layer,0);
 
-entropy -= tilemap_width*tilemap_height;
+//entropy -= tilemap_width*tilemap_height;
 my_state  = genState.collapse;
