@@ -1,4 +1,4 @@
-//randomize();
+randomize();
 
 process_stack = ds_list_create();
 stack_size = 0;
@@ -17,6 +17,9 @@ start_time = -1;
 tile_constraints = -1;
 json_map = -1;
 num_tiles = 0;
+clude_tiles = ds_list_create();
+
+ds_list_add(clude_tiles, 3, 6, 9, 12);
 
 var file = file_text_open_read(constraints_file);
 

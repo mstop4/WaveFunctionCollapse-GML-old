@@ -2,7 +2,7 @@
     "id": "26380743-b724-46dd-a65f-42618dcf8c3f",
     "modelName": "GMTileSet",
     "mvc": "1.11",
-    "name": "ts_12_test",
+    "name": "ts_pipes",
     "auto_tile_sets": [
         
     ],
@@ -38,7 +38,11 @@
             12,
             13,
             14,
-            15
+            15,
+            16,
+            17,
+            18,
+            19
         ],
         "SerialiseFrameCount": 1
     },
@@ -46,7 +50,7 @@
         
     ],
     "tile_animation_speed": 15,
-    "tile_count": 16,
+    "tile_count": 20,
     "tileheight": 32,
     "tilehsep": 0,
     "tilevsep": 0,
