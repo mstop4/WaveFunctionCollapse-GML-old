@@ -53,6 +53,16 @@
             "enumb": 0,
             "eventtype": 8,
             "m_owner": "2d39927f-71b7-47fa-8092-373531b9fd4f"
+        },
+        {
+            "id": "59e33da7-eb27-4137-81d4-48a3440e3171",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 83,
+            "eventtype": 9,
+            "m_owner": "2d39927f-71b7-47fa-8092-373531b9fd4f"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -82,7 +92,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "20",
+            "value": "10",
             "varName": "tilemap_width",
             "varType": 1
         },
@@ -96,7 +106,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "20",
+            "value": "10",
             "varName": "tilemap_height",
             "varType": 1
         },
@@ -110,7 +120,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "16-tile.json",
+            "value": "pipe.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -124,7 +134,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_16_test",
+            "value": "ts_pipes",
             "varName": "tile_set",
             "varType": 5
         },
