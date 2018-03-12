@@ -5,7 +5,6 @@ stack_size = 0;
 finished_tiles_queue = ds_queue_create();
 tile_layer = layer_create(-1000);
 tilemap_layer = layer_tilemap_create(tile_layer,0,0,tile_set,tilemap_width,tilemap_height);
-is_generating = false;
 visited = -1;
 my_state = genState.idle;
 entropy = 0;
