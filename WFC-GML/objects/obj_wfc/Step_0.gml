@@ -103,9 +103,9 @@ if (my_state <> genState.idle)
 	{
 		if (!ds_list_empty(process_stack))
 		{
-			var cur_cell_data = process_stack[| stack_size-1];
-			ds_list_delete(process_stack, stack_size-1);
 			stack_size--;
+			var cur_cell_data = process_stack[| stack_size];
+			ds_list_delete(process_stack, stack_size);
 			var cur_cell_x = cur_cell_data >> 16;
 			var cur_cell_y = cur_cell_data - (cur_cell_x << 16);
 			var cur_cell = tilemap_grid[# cur_cell_x, cur_cell_y];
