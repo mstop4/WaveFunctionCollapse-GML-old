@@ -2,7 +2,7 @@
     "id": "2d39927f-71b7-47fa-8092-373531b9fd4f",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_wfc",
+    "name": "obj_wfc_FSM_cap",
     "eventList": [
         {
             "id": "e7f5bb4a-0c0a-45e9-985d-78260f2f9494",
@@ -120,7 +120,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "pipe.json",
+            "value": "16-tile.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -134,7 +134,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_pipes",
+            "value": "ts_16_test",
             "varName": "tile_set",
             "varType": 5
         },
