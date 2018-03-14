@@ -2,12 +2,17 @@ randomize();
 
 process_stack = ds_list_create();
 stack_size = 0;
+
+process_time = 0;
+step_max_time = 1000 / room_speed;
+
 finished_tiles_queue = ds_queue_create();
 tile_layer = layer_create(-1000);
 tilemap_layer = layer_tilemap_create(tile_layer,0,0,tile_set,tilemap_width,tilemap_height);
 visited = -1;
 my_state = genState.idle;
-entropy = 0;
+entropy = 1;
+max_entropy = 1;
 has_changed = false;
 time_taken = -1;
 start_time = -1;
@@ -17,8 +22,7 @@ tile_constraints = -1;
 json_map = -1;
 num_tiles = 0;
 clude_tiles = ds_list_create();
-
-//ds_list_add(clude_tiles, 3, 6, 9, 12);
+//ds_list_add(clude_tiles, 0, 1, 2, 4, 8);
 
 var file = file_text_open_read(constraints_file);
 

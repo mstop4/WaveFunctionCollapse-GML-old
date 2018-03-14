@@ -103,7 +103,7 @@ if (my_state <> genState.idle)
 				}
 		
 				my_state = genState.idle;
-				time_taken = current_time - start_time;
+				time_taken = (current_time - start_time) / 1000;
 			}
 		}
 	

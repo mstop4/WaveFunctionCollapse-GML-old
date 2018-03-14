@@ -2,7 +2,7 @@
     "id": "2d39927f-71b7-47fa-8092-373531b9fd4f",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_wfc_FSM_cap",
+    "name": "obj_wfc",
     "eventList": [
         {
             "id": "e7f5bb4a-0c0a-45e9-985d-78260f2f9494",
@@ -179,6 +179,20 @@
             "value": "False",
             "varName": "is_include",
             "varType": 3
+        },
+        {
+            "id": "d4ba6863-248f-4685-a18f-68b28903fddd",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "$FFFF4C4C",
+            "varName": "progress_bar_col",
+            "varType": 7
         }
     ],
     "solid": false,

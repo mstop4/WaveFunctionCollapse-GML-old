@@ -26,4 +26,5 @@ for (var i=0; i<tilemap_height; i++)
 tilemap_clear(tilemap_layer,0);
 
 entropy -= tilemap_width*tilemap_height;
+max_entropy = entropy;
 my_state  = genState.collapse;
