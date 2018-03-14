@@ -120,7 +120,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "pipe.json",
+            "value": "16-tile.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -134,7 +134,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_pipes",
+            "value": "ts_16_test",
             "varName": "tile_set",
             "varType": 5
         },
@@ -179,6 +179,20 @@
             "value": "False",
             "varName": "is_include",
             "varType": 3
+        },
+        {
+            "id": "d4ba6863-248f-4685-a18f-68b28903fddd",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "$FFFF4C4C",
+            "varName": "progress_bar_col",
+            "varType": 7
         }
     ],
     "solid": false,
