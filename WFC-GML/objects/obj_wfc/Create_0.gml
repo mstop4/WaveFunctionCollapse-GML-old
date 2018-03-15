@@ -1,4 +1,4 @@
-//randomize();
+randomize();
 
 process_stack = ds_list_create();
 stack_size = 0;
