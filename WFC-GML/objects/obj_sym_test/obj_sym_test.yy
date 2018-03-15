@@ -90,7 +90,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_sym_test",
+            "value": "ts_pipes",
             "varName": "tile_set",
             "varType": 5
         }

@@ -9,7 +9,10 @@ var _cons_file = argument[1];
 var _file = file_text_open_read(_sym_file);
 
 if (!_file)
+{
+	show_message_async("Error loading symmetries file");
 	return false;
+}
 
 var _json = file_text_read_string(_file);
 var _sym_map = json_decode(_json);
@@ -20,13 +23,19 @@ file_text_close(_file);
 _file = file_text_open_read(_cons_file);
 
 if (!_file)
+{
+	show_message_async("Error loading constraints file");
 	return false;
+}
 
 _json = file_text_read_string(_file);
 var _json_map = json_decode(_json);
 
 if (_json_map == -1)
+{
+	show_message_async("Error decoding JSON");
 	return false;
+}
 
 var _base_tile_constraints = _json_map[? "default"];
 

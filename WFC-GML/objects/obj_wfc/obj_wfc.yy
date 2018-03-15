@@ -102,7 +102,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "5",
+            "value": "20",
             "varName": "tilemap_width",
             "varType": 1
         },
@@ -116,7 +116,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "5",
+            "value": "20",
             "varName": "tilemap_height",
             "varType": 1
         },
@@ -130,7 +130,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "16-tile-nodup.json",
+            "value": "pipe-nodup.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -158,7 +158,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_16_nodup_test",
+            "value": "ts_pipes",
             "varName": "tile_set",
             "varType": 5
         },
