@@ -3,8 +3,8 @@
 
 var _constraint_list = argument[0];
 
-var _temp = _constraint_list[| 0];
-_constraint_list[| 0] = _constraint_list[| 3];
+var _temp = _constraint_list[| 3];
 _constraint_list[| 3] = _constraint_list[| 2];
 _constraint_list[| 2] = _constraint_list[| 1];
-_constraint_list[| 1] = _temp;
+_constraint_list[| 1] = _constraint_list[| 0];
+_constraint_list[| 0] = _temp;

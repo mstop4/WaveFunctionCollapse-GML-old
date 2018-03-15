@@ -17,7 +17,12 @@ if (my_state <> genState.idle)
 					var cell_coords = ds_queue_dequeue(finished_tiles_queue);
 					var data = tilemap_get(tilemap_layer, cell_coords[0], cell_coords[1]);
 					var cell = tilemap_grid[# cell_coords[0], cell_coords[1]];
-					data = tile_set_index(data,cell[| 0]+tile_index_offset);
+					var base_tile = base_tile_index[cell[| 0]];
+					var transforms = base_tile_symmetry[cell[| 0]];
+					data = tile_set_index(data,base_tile+tile_index_offset);
+					data = tile_set_mirror(data,transforms & 1);
+					data = tile_set_flip(data,transforms & 2);
+					data = tile_set_rotate(data,transforms & 4);
 					tilemap_set(tilemap_layer, data, cell_coords[0], cell_coords[1]);
 				}
 			}

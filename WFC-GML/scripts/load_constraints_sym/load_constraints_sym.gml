@@ -53,6 +53,7 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 		{
 			var _wrk_tile_data = ds_list_create();
 			ds_list_copy(_wrk_tile_data, _cur_tile_data);
+			ds_list_delete(_wrk_tile_data, 4);
 			var _cur_sym = _sym_data[| j];
 		
 			if (_cur_sym & 1)
@@ -64,10 +65,13 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 			
 			ds_list_add(tile_constraints,_wrk_tile_data);
 			ds_list_mark_as_list(tile_constraints, _num_tile_constraints);
+			base_tile_index[_num_tile_constraints] = i;
+			base_tile_symmetry[_num_tile_constraints] = _cur_sym;
 			_num_tile_constraints++;
 		}
 	}
 }
 
+num_tiles = ds_list_size(tile_constraints);
 ds_map_destroy(_json_map);
 return true;
