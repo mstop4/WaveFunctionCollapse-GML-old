@@ -19,7 +19,6 @@ start_time = -1;
 
 // Get tile constraints
 tile_constraints = -1;
-json_map = -1;
 num_tiles = 0;
 clude_tiles = ds_list_create();
 ds_list_add(clude_tiles, 0, 1, 2, 4, 8);

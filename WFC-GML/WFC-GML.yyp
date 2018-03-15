@@ -63,14 +63,6 @@
             }
         },
         {
-            "Key": "1edf1fe2-00fd-49e0-88f8-33971774a8c7",
-            "Value": {
-                "id": "46c9374e-a6df-4ead-9d02-5e0d2b0fce85",
-                "resourcePath": "objects\\obj_sym_test\\obj_sym_test.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "26380743-b724-46dd-a65f-42618dcf8c3f",
             "Value": {
                 "id": "e0e63cdd-b517-4b6d-966a-dc5584c6ba1d",
@@ -84,14 +76,6 @@
                 "id": "6cb9a2e8-9e50-4953-afd2-f458bf74fa18",
                 "resourcePath": "views\\277f812f-dc6b-4245-89e4-9dd3a41e5206.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "2a624dd2-d9df-4075-b051-012f92279bbb",
-            "Value": {
-                "id": "eebbc6ba-e88f-4bea-be98-af02ac68d2cd",
-                "resourcePath": "sprites\\spr_sym_test\\spr_sym_test.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -111,14 +95,6 @@
             }
         },
         {
-            "Key": "30e411c6-be2f-4c51-bee8-ff79f0020344",
-            "Value": {
-                "id": "f1a27ce7-7063-4fd9-abe8-7b53c632da0f",
-                "resourcePath": "tilesets\\ts_sym_test\\ts_sym_test.yy",
-                "resourceType": "GMTileSet"
-            }
-        },
-        {
             "Key": "41506bf5-3cee-4134-b767-51fc7202e23b",
             "Value": {
                 "id": "1b4ee495-5f6b-40ca-828b-815a5f10dd3a",
@@ -132,14 +108,6 @@
                 "id": "28dcd205-fa2c-458c-99e3-8cb62468b183",
                 "resourcePath": "views\\4edf4bf8-b047-45d4-9bdd-7f17ffc65a3e.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "50032968-b1e6-41b6-b8e4-255a57bd0364",
-            "Value": {
-                "id": "11942ebb-a9ca-44b1-972c-58d0db6e6c6e",
-                "resourcePath": "sprites\\spr_16_nodup_test\\spr_16_nodup_test.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -172,14 +140,6 @@
                 "id": "eac977c6-0643-43da-89a6-a9b05b284625",
                 "resourcePath": "sprites\\spr_pipes\\spr_pipes.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "7505d8c1-7a1b-4f10-ab40-486ef791cd7c",
-            "Value": {
-                "id": "76b7c463-bdd3-412b-b111-957a7167c45b",
-                "resourcePath": "tilesets\\ts_16_nodup_test\\ts_16_nodup_test.yy",
-                "resourceType": "GMTileSet"
             }
         },
         {
@@ -359,14 +319,6 @@
             }
         },
         {
-            "Key": "d4e332fd-28b5-4ad8-bf55-656c1a54bea5",
-            "Value": {
-                "id": "61f7f4a3-d2f2-414b-8b19-91baae38cef9",
-                "resourcePath": "scripts\\load_constraints_sym\\load_constraints_sym.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "d7c4072f-736c-48e2-adef-9b0c9a6fe6ee",
             "Value": {
                 "id": "7a44b8a0-6197-4e44-90ab-1aeb05afa412",
@@ -431,14 +383,6 @@
             }
         },
         {
-            "Key": "f52a55f4-3e1e-4d4b-ac81-022909a4e05a",
-            "Value": {
-                "id": "776cb39c-2bc9-4460-9027-3ff8bc0dba68",
-                "resourcePath": "datafiles_yy\\16-tile-nodup.json.yy",
-                "resourceType": "GMIncludedFile"
-            }
-        },
-        {
             "Key": "fcbecc3e-625c-4ced-a997-384bd986ae1b",
             "Value": {
                 "id": "7d9f9ab0-5111-416e-b2e8-d999602ecb28",
@@ -451,12 +395,11 @@
         "d07ed06e-3927-4e5a-b31e-0cd7204a29ce",
         "a2c54756-3a59-447e-9f3e-7d5799c89244",
         "d7c4072f-736c-48e2-adef-9b0c9a6fe6ee",
+        "a7308319-3d1b-450d-a16b-39f485a8cf77",
         "6c03ac13-6bbc-4ee8-94eb-9487855ff174",
         "c7c61359-7f5b-4067-92ba-9a0ce968690c",
         "ae658935-9bf4-442a-8ace-3c043461a047",
-        "02c6d5db-0429-43be-b8dd-b3597523a8a9",
-        "d4e332fd-28b5-4ad8-bf55-656c1a54bea5",
-        "a7308319-3d1b-450d-a16b-39f485a8cf77"
+        "02c6d5db-0429-43be-b8dd-b3597523a8a9"
     ],
     "tutorial": ""
 }
