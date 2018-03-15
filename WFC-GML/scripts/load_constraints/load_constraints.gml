@@ -46,8 +46,8 @@ tile_constraints = ds_list_create();
 
 for (var i=0; i<_num_base_tile_constraints; i++)
 {
-	if (is_include && ds_list_find_index(clude_tiles, i) <> -1) ||
-		(!is_include && ds_list_find_index(clude_tiles, i) == -1)
+	if (filter_mode == filterMode.include && ds_list_find_index(tile_filter, i) <> -1) ||
+		(filter_mode == filterMode.exclude && ds_list_find_index(tile_filter, i) == -1)
 	{
 		var _cur_tile_data = _base_tile_constraints[| i];
 		

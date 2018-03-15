@@ -120,7 +120,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "baseConstraints\/4-tile.json",
+            "value": "baseConstraints\/pipes.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -148,7 +148,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_4",
+            "value": "ts_pipes",
             "varName": "tile_set",
             "varType": 5
         },
@@ -190,9 +190,9 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "False",
-            "varName": "is_include",
-            "varType": 3
+            "value": "filterMode.include",
+            "varName": "filter_mode",
+            "varType": 4
         },
         {
             "id": "d4ba6863-248f-4685-a18f-68b28903fddd",

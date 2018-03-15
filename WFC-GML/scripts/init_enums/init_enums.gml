@@ -4,3 +4,9 @@ enum genState
 	collapse,
 	propagate
 }
+
+enum filterMode
+{
+	include,
+	exclude
+}
