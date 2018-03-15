@@ -16,7 +16,6 @@ max_entropy = 1;
 has_changed = false;
 time_taken = -1;
 start_time = -1;
-json_map = -1;
 
 // Get tile constraints
 tile_constraints = -1;
