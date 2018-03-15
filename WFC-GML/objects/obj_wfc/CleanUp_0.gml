@@ -1,4 +1,5 @@
-ds_list_destroy(tile_constraints);
+if (ds_exists(tile_constraints, ds_type_list))
+	ds_list_destroy(tile_constraints);
 
 for (var i=0; i<tilemap_height; i++)
 {

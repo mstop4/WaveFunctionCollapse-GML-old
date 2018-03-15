@@ -23,9 +23,9 @@ num_tiles = 0;
 base_tile_index[0] = 0;
 base_tile_symmetry[0] = 0;
 clude_tiles = ds_list_create();
-ds_list_add(clude_tiles, 0, 1);
+//ds_list_add(clude_tiles, 0, 1);
 
-var result = load_constraints_sym(symmetries_file,constraints_file);
+load_constraints(symmetries_file,constraints_file);
 
 // Init tilemap
 tilemap_grid = ds_grid_create(tilemap_width, tilemap_width);
