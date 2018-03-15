@@ -1,8 +1,8 @@
 {
-    "id": "d4e332fd-28b5-4ad8-bf55-656c1a54bea5",
+    "id": "bd8d2ae0-51bd-4b31-98dd-333b6d41f3e9",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "load_constraints",
+    "name": "constraint_rotate",
     "IsCompatibility": false,
     "IsDnD": false
 }

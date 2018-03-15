@@ -1,6 +1,6 @@
-var file = get_save_filename("*.png","");
+var _file = get_save_filename("*.png","");
 
-if (file <> "")
+if (_file <> "")
 {
-	screen_save(file);
+	screen_save(_file);
 }

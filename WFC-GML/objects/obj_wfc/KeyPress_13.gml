@@ -13,12 +13,8 @@ for (var i=0; i<tilemap_height; i++)
 	
 		for (var k=0; k<num_tiles; k++)
 		{
-			if ((is_include && ds_list_find_index(clude_tiles, k) <> -1) ||
-				(!is_include && ds_list_find_index(clude_tiles, k) == -1) )
-			{
-				ds_list_add(cur_list, k);
-				entropy++;
-			}
+			ds_list_add(cur_list, k);
+			entropy++;
 		}
 	}
 }

@@ -120,8 +120,22 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "16-tile.json",
+            "value": "baseConstraints\/4-tile.json",
             "varName": "constraints_file",
+            "varType": 2
+        },
+        {
+            "id": "6a1e4b68-e83f-4d11-89a8-d881b2f65695",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "symmetries.json",
+            "varName": "symmetries_file",
             "varType": 2
         },
         {
@@ -134,7 +148,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_16_test",
+            "value": "ts_4",
             "varName": "tile_set",
             "varType": 5
         },
@@ -148,7 +162,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "4",
+            "value": "1",
             "varName": "tile_index_offset",
             "varType": 1
         },

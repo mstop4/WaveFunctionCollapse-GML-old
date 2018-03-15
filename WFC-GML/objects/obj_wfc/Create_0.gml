@@ -21,10 +21,12 @@ json_map = -1;
 // Get tile constraints
 tile_constraints = -1;
 num_tiles = 0;
+base_tile_index[0] = 0;
+base_tile_symmetry[0] = 0;
 clude_tiles = ds_list_create();
-//ds_list_add(clude_tiles, 3, 5, 6, 9, 12);
+//ds_list_add(clude_tiles, 0, 1);
 
-load_constraints();
+load_constraints(symmetries_file,constraints_file);
 
 // Init tilemap
 tilemap_grid = ds_grid_create(tilemap_width, tilemap_width);

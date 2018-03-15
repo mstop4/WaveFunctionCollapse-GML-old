@@ -13,14 +13,14 @@ for (var l=0; l<2; l++)
 			{
 				str += "[";
 				// up
-				str += string(j*2 + i) + ", ";
+				str += string(j*2 + i) + ",";
 				// right
-				str += string(l*2 + j) + ", ";
+				str += string(l*2 + j) + ",";
 				// down
-				str += string(l*2 + k) + ", ";
+				str += string(l*2 + k) + ",";
 				// left
 				str += string(k*2 + i);
-				str += "],";
+				str += ",\"X\"],";
 			}
 		}
 	}
