@@ -1,4 +1,5 @@
 var file = file_text_open_read(constraints_file);
+var json_map;
 
 if (file)
 {
@@ -13,3 +14,4 @@ if (file)
 }
 
 file_text_close(file);
+ds_map_destroy(json_map);

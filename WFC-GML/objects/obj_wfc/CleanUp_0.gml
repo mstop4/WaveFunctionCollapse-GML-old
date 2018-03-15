@@ -1,5 +1,4 @@
 ds_list_destroy(tile_constraints);
-ds_map_destroy(json_map);
 
 for (var i=0; i<tilemap_height; i++)
 {

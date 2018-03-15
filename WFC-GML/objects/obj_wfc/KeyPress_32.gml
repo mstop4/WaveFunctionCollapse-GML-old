@@ -1,0 +1,1 @@
+load_constraints_sym("symmetries.json","16-tile-nodup.json");

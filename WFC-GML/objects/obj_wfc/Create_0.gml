@@ -19,12 +19,11 @@ start_time = -1;
 
 // Get tile constraints
 tile_constraints = -1;
-json_map = -1;
 num_tiles = 0;
 clude_tiles = ds_list_create();
-ds_list_add(clude_tiles, 0, 1, 2, 4, 8);
+//ds_list_add(clude_tiles, 0, 1, 2, 4, 8);
 
-load_constraints();
+load_constraints_sym(symmetries_file,constraints_file);
 
 // Init tilemap
 tilemap_grid = ds_grid_create(tilemap_width, tilemap_width);

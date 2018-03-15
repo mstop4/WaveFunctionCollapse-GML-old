@@ -63,6 +63,16 @@
             "enumb": 83,
             "eventtype": 9,
             "m_owner": "2d39927f-71b7-47fa-8092-373531b9fd4f"
+        },
+        {
+            "id": "e3c8dbaa-b4fd-4479-8844-a5ff8bf4b02c",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 32,
+            "eventtype": 9,
+            "m_owner": "2d39927f-71b7-47fa-8092-373531b9fd4f"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -120,8 +130,22 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "pipe.json",
+            "value": "16-tile-nodup.json",
             "varName": "constraints_file",
+            "varType": 2
+        },
+        {
+            "id": "6a1e4b68-e83f-4d11-89a8-d881b2f65695",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "symmetries.json",
+            "varName": "symmetries_file",
             "varType": 2
         },
         {
@@ -134,7 +158,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_pipes",
+            "value": "ts_16_nodup_test",
             "varName": "tile_set",
             "varType": 5
         },
@@ -148,7 +172,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "4",
+            "value": "1",
             "varName": "tile_index_offset",
             "varType": 1
         },
