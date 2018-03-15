@@ -120,7 +120,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "16-tile.json",
+            "value": "pipe.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -134,7 +134,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_16_test",
+            "value": "ts_pipes",
             "varName": "tile_set",
             "varType": 5
         },

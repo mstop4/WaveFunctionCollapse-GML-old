@@ -22,7 +22,7 @@ tile_constraints = -1;
 json_map = -1;
 num_tiles = 0;
 clude_tiles = ds_list_create();
-//ds_list_add(clude_tiles, 0, 1, 2, 4, 8);
+ds_list_add(clude_tiles, 0, 1, 2, 4, 8);
 
 var file = file_text_open_read(constraints_file);
 
