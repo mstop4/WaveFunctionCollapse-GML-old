@@ -92,7 +92,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "20",
+            "value": "10",
             "varName": "tilemap_width",
             "varType": 1
         },
@@ -106,7 +106,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "20",
+            "value": "10",
             "varName": "tilemap_height",
             "varType": 1
         },
@@ -120,7 +120,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "baseConstraints\/pipes.json",
+            "value": "baseConstraints\/kenney.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -148,7 +148,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_pipes",
+            "value": "ts_kenney",
             "varName": "tile_set",
             "varType": 5
         },
@@ -190,7 +190,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "filterMode.include",
+            "value": "filterMode.exclude",
             "varName": "filter_mode",
             "varType": 4
         },

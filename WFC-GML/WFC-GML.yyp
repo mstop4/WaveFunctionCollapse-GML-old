@@ -135,6 +135,14 @@
             }
         },
         {
+            "Key": "53f7712d-9c7c-4bfb-a726-8bee6d0ecaca",
+            "Value": {
+                "id": "cbb444f6-2b78-4803-bc10-45382cfbc0a7",
+                "resourcePath": "tilesets\\ts_kenney\\ts_kenney.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "615075a7-2db8-41bd-8c00-4d3f22b129e1",
             "Value": {
                 "id": "3676e6ee-96d2-4fb4-bdcd-bbe67cbe1ced",
@@ -148,6 +156,14 @@
                 "id": "ae6ba04b-331f-49c6-86a4-03729bfbc8d2",
                 "resourcePath": "scripts\\gen_16tile_consGroups\\gen_16tile_consGroups.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "6faa8650-9c74-4a77-8e6f-bf806372a452",
+            "Value": {
+                "id": "6cd3fa33-f559-4748-9d4e-82e0b8dfc3f3",
+                "resourcePath": "sprites\\spr_kenney\\spr_kenney.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -388,6 +404,14 @@
                 "id": "80517e26-a2bb-4ac1-8633-656a4873640d",
                 "resourcePath": "options\\mac\\options_mac.yy",
                 "resourceType": "GMMacOptions"
+            }
+        },
+        {
+            "Key": "f4b51084-add1-4c1e-acd2-f983035b75b0",
+            "Value": {
+                "id": "0b6e275e-15a2-4513-a734-6290ccd096fc",
+                "resourcePath": "datafiles_yy\\baseConstraints\\kenney.json.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {
