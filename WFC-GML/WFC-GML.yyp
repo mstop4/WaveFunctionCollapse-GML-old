@@ -87,14 +87,6 @@
             }
         },
         {
-            "Key": "29aaa6e8-05d5-4985-97e7-4cc63c479412",
-            "Value": {
-                "id": "8d5adb7e-d3a7-496d-b8f6-9583e70a957f",
-                "resourcePath": "datafiles_yy\\baseConstraints\\kenney.json.yy",
-                "resourceType": "GMIncludedFile"
-            }
-        },
-        {
             "Key": "2a624dd2-d9df-4075-b051-012f92279bbb",
             "Value": {
                 "id": "eebbc6ba-e88f-4bea-be98-af02ac68d2cd",
@@ -212,6 +204,14 @@
                 "id": "2a9eb8af-faa6-46f1-a9ad-7edf47252ff5",
                 "resourcePath": "views\\85faf633-d18d-4901-980e-407aec259d07.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "86c8a5cf-be5e-496b-8fea-04fd57c55d30",
+            "Value": {
+                "id": "2671f713-079e-4d28-ad69-bcc43393d290",
+                "resourcePath": "datafiles_yy\\baseConstraints\\kenney.json.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {
