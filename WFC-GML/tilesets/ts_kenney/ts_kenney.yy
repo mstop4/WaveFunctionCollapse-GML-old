@@ -1,5 +1,5 @@
 {
-    "id": "53f7712d-9c7c-4bfb-a726-8bee6d0ecaca",
+    "id": "6db549a8-06ab-40e3-bd49-834d48b7a70e",
     "modelName": "GMTileSet",
     "mvc": "1.11",
     "name": "ts_kenney",
@@ -17,7 +17,7 @@
     "out_columns": 4,
     "out_tilehborder": 2,
     "out_tilevborder": 2,
-    "spriteId": "6faa8650-9c74-4a77-8e6f-bf806372a452",
+    "spriteId": "66b541ae-9e28-4f7b-8ad9-be680045436a",
     "sprite_no_export": true,
     "textureGroupId": "1225f6b0-ac20-43bd-a82e-be73fa0b6f4f",
     "tile_animation": {
