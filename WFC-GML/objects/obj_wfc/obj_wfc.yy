@@ -120,7 +120,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "baseConstraints\/pipes.json",
+            "value": "baseConstraints\/kenney.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -139,6 +139,20 @@
             "varType": 2
         },
         {
+            "id": "5cc8d7b7-b69c-4e61-b4ed-fd41ad084fb1",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "False",
+            "varName": "ignore_symmetries",
+            "varType": 3
+        },
+        {
             "id": "13886713-27b3-43af-8f49-73a5b5db4cbc",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -148,7 +162,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_pipes",
+            "value": "ts_kenney",
             "varName": "tile_set",
             "varType": 5
         },
@@ -162,7 +176,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "1",
+            "value": "0",
             "varName": "tile_index_offset",
             "varType": 1
         },
@@ -190,7 +204,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "filterMode.include",
+            "value": "filterMode.exclude",
             "varName": "filter_mode",
             "varType": 4
         },

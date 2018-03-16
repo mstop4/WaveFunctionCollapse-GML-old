@@ -20,6 +20,7 @@ for (var i=0; i<tilemap_height; i++)
 }
 
 tilemap_clear(tilemap_layer,0);
+reset_tiled();
 
 entropy -= tilemap_width*tilemap_height;
 max_entropy = entropy;
