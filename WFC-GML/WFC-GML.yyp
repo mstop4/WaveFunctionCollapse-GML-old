@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "09c7f231-3f25-4ac9-bc23-630d76bb40d8",
+            "Value": {
+                "id": "00488560-d28e-4c22-815a-03db365872e8",
+                "resourcePath": "datafiles_yy\\baseConstraints\\kenney.json.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "0bb1bd01-93c9-4dba-b8b7-f87ebade1676",
             "Value": {
                 "id": "1ce4a698-8fd0-41cb-9c5a-a49b64a603bf",
@@ -143,11 +151,27 @@
             }
         },
         {
+            "Key": "66b541ae-9e28-4f7b-8ad9-be680045436a",
+            "Value": {
+                "id": "7db1f97a-a8fb-4c44-80f9-755e940536db",
+                "resourcePath": "sprites\\spr_kenney\\spr_kenney.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6c03ac13-6bbc-4ee8-94eb-9487855ff174",
             "Value": {
                 "id": "ae6ba04b-331f-49c6-86a4-03729bfbc8d2",
                 "resourcePath": "scripts\\gen_16tile_consGroups\\gen_16tile_consGroups.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "6db549a8-06ab-40e3-bd49-834d48b7a70e",
+            "Value": {
+                "id": "72bf8460-02d1-4a76-af08-70d3c13d0c01",
+                "resourcePath": "tilesets\\ts_kenney\\ts_kenney.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
