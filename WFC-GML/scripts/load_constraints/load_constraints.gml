@@ -54,7 +54,7 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 		if (!ignore_symmetries)
 		{
 			// Get symmetry data
-			var _cur_tile_sym_type = _cur_tile_data[| 4];
+			var _cur_tile_sym_type = _cur_tile_data[| 5];
 			var _sym_data = _sym_map[? _cur_tile_sym_type];
 		
 			// Create symmetric constraints
@@ -64,7 +64,6 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 			{
 				var _wrk_tile_data = ds_list_create();
 				ds_list_copy(_wrk_tile_data, _cur_tile_data);
-				ds_list_delete(_wrk_tile_data, 4);
 				var _cur_sym = _sym_data[| j];
 		
 				if (_cur_sym & 1)
@@ -76,8 +75,10 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 			
 				ds_list_add(tile_constraints,_wrk_tile_data);
 				ds_list_mark_as_list(tile_constraints, _num_tile_constraints);
-				base_tile_index[_num_tile_constraints] = i;
+				base_tile_index[_num_tile_constraints] = _wrk_tile_data[| 4];
 				base_tile_symmetry[_num_tile_constraints] = _cur_sym;
+				ds_list_delete(_wrk_tile_data, 4);
+				ds_list_delete(_wrk_tile_data, 5);
 				_num_tile_constraints++;
 			}
 		}
