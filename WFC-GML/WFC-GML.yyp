@@ -47,14 +47,6 @@
             }
         },
         {
-            "Key": "09c7f231-3f25-4ac9-bc23-630d76bb40d8",
-            "Value": {
-                "id": "00488560-d28e-4c22-815a-03db365872e8",
-                "resourcePath": "datafiles_yy\\baseConstraints\\kenney.json.yy",
-                "resourceType": "GMIncludedFile"
-            }
-        },
-        {
             "Key": "0bb1bd01-93c9-4dba-b8b7-f87ebade1676",
             "Value": {
                 "id": "1ce4a698-8fd0-41cb-9c5a-a49b64a603bf",
@@ -308,6 +300,14 @@
                 "id": "3820e7fc-7d25-45a8-b0ab-608b28dfe0d3",
                 "resourcePath": "tilesets\\ts_16\\ts_16.yy",
                 "resourceType": "GMTileSet"
+            }
+        },
+        {
+            "Key": "b462fff6-0f2e-44bd-bb98-09e49c93a4b0",
+            "Value": {
+                "id": "82bd9b22-8298-46b2-a6ec-4a8fe63223fd",
+                "resourcePath": "datafiles_yy\\baseConstraints\\kenney.json.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {
