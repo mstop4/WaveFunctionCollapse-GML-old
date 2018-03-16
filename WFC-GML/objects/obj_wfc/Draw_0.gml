@@ -1,3 +1,9 @@
+draw_set_color(c_black);
+draw_set_alpha(0.33);
+draw_rectangle(room_width-208,0,room_width,58,false);
+
+draw_set_color(c_white);
+draw_set_alpha(1);
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 
