@@ -120,7 +120,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "baseConstraints\/kenney.json",
+            "value": "baseConstraints\/pipes.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -148,7 +148,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "True",
+            "value": "False",
             "varName": "ignore_symmetries",
             "varType": 3
         },
@@ -162,7 +162,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_kenney",
+            "value": "ts_pipes",
             "varName": "tile_set",
             "varType": 5
         },
@@ -176,7 +176,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "1",
             "varName": "tile_index_offset",
             "varType": 1
         },
@@ -204,7 +204,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "filterMode.exclude",
+            "value": "filterMode.include",
             "varName": "filter_mode",
             "varType": 4
         },

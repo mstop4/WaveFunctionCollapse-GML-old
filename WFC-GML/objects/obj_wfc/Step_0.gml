@@ -24,6 +24,7 @@ if (my_state <> genState.idle)
 					_data = tile_set_flip(_data,_transforms & 2);
 					_data = tile_set_rotate(_data,_transforms & 4);
 					tilemap_set(tilemap_layer, _data, _cell_coords[0], _cell_coords[1]);
+					tiled[ _cell_coords[0], _cell_coords[1]] = true;
 				}
 			}
 		
@@ -87,16 +88,17 @@ if (my_state <> genState.idle)
 			{
 				if (entropy == 0)
 				{
-					if (!realtime_tiling)
+					for (var i=0; i<tilemap_height; i++)
 					{
-						for (var i=0; i<tilemap_height; i++)
+						for (var j=0; j<tilemap_width; j++)
 						{
-							for (var j=0; j<tilemap_width; j++)
+							if (!tiled[ j, i])
 							{
 								var _data = tilemap_get(tilemap_layer, j, i);
 								var _cell = tilemap_grid[# j, i];
 								_data = tile_set_index(_data,_cell[| 0]+tile_index_offset);
 								tilemap_set(tilemap_layer, _data, j, i);
+								tiled[ j, i] = true;
 							}
 						}
 					}
@@ -104,7 +106,7 @@ if (my_state <> genState.idle)
 			
 				else
 				{
-					show_message_async("Error: Something went wrong.");
+					show_message_async("Error: Cannot generate tilemap with current tileset.");
 				}
 		
 				my_state = genState.idle;
@@ -125,7 +127,7 @@ if (my_state <> genState.idle)
 			
 				if (ds_list_size(_cur_cell) == 0)
 				{
-					show_message_async("Something went wrong");
+					show_message_async("Error: Cell has no possible state.");
 					my_state = genState.idle;
 					exit;
 				}
