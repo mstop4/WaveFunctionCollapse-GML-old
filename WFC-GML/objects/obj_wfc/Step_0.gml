@@ -96,7 +96,12 @@ if (my_state <> genState.idle)
 							{
 								var _data = tilemap_get(tilemap_layer, j, i);
 								var _cell = tilemap_grid[# j, i];
-								_data = tile_set_index(_data,_cell[| 0]+tile_index_offset);
+								var _base_tile = base_tile_index[_cell[| 0]];
+								var _transforms = base_tile_symmetry[_cell[| 0]];
+								_data = tile_set_index(_data,_base_tile+tile_index_offset);
+								_data = tile_set_mirror(_data,_transforms & 1);
+								_data = tile_set_flip(_data,_transforms & 2);
+								_data = tile_set_rotate(_data,_transforms & 4);
 								tilemap_set(tilemap_layer, _data, j, i);
 								tiled[ j, i] = true;
 							}

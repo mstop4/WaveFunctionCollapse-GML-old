@@ -1,1 +1,50 @@
-[[0,0,0,0,"X"],[1,0,0,0,"T"],[1,0,1,0,"I"],[1,1,0,0,"L"],[1,1,1,0,"T"],[1,1,1,1,"X"]]
+[
+	{
+		"tileId": 0,
+		"upId": 0,
+		"rightId": 0,
+		"downId": 0,
+		"leftId": 0,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 1,
+		"upId": 1,
+		"rightId": 0,
+		"downId": 0,
+		"leftId": 0,
+		"symmetry": "T"
+	},
+	{
+		"tileId": 2,
+		"upId": 1,
+		"rightId": 0,
+		"downId": 1,
+		"leftId": 0,
+		"symmetry": "I"
+	},
+	{
+		"tileId": 3,
+		"upId": 1,
+		"rightId": 1,
+		"downId": 0,
+		"leftId": 0,
+		"symmetry": "L"
+	},
+	{
+		"tileId": 4,
+		"upId": 1,
+		"rightId": 1,
+		"downId": 1,
+		"leftId": 0,
+		"symmetry": "T"
+	},
+	{
+		"tileId": 5,
+		"upId": 1,
+		"rightId": 1,
+		"downId": 1,
+		"leftId": 1,
+		"symmetry": "X"
+	},
+]

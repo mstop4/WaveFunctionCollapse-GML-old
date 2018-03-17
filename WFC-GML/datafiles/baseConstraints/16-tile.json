@@ -1,1 +1,130 @@
-[[0,0,0,0,"X"],[1,0,0,1,"X"],[2,1,0,0,"X"],[3,1,0,1,"X"],[0,0,1,2,"X"],[1,0,1,3,"X"],[2,1,1,2,"X"],[3,1,1,3,"X"],[0,2,2,0,"X"],[1,2,2,1,"X"],[2,3,2,0,"X"],[3,3,2,1,"X"],[0,2,3,2,"X"],[1,2,3,3,"X"],[2,3,3,2,"X"],[3,3,3,3,"X"]]
+[
+	{
+		"tileId": 0,
+		"upId": 0,
+		"rightId": 0,
+		"downId": 0,
+		"leftId": 0,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 1,
+		"upId": 1,
+		"rightId": 0,
+		"downId": 0,
+		"leftId": 1,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 2,
+		"upId": 2,
+		"rightId": 1,
+		"downId": 0,
+		"leftId": 0,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 3,
+		"upId": 3,
+		"rightId": 1,
+		"downId": 0,
+		"leftId": 1,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 4,
+		"upId": 0,
+		"rightId": 0,
+		"downId": 1,
+		"leftId": 2,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 5,
+		"upId": 1,
+		"rightId": 0,
+		"downId": 1,
+		"leftId": 3,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 6,
+		"upId": 2,
+		"rightId": 1,
+		"downId": 1,
+		"leftId": 2,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 7,
+		"upId": 3,
+		"rightId": 1,
+		"downId": 1,
+		"leftId": 3,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 8,
+		"upId": 0,
+		"rightId": 2,
+		"downId": 2,
+		"leftId": 0,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 9,
+		"upId": 1,
+		"rightId": 2,
+		"downId": 2,
+		"leftId": 1,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 10,
+		"upId": 2,
+		"rightId": 3,
+		"downId": 2,
+		"leftId": 0,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 11,
+		"upId": 3,
+		"rightId": 3,
+		"downId": 2,
+		"leftId": 1,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 12,
+		"upId": 0,
+		"rightId": 2,
+		"downId": 3,
+		"leftId": 2,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 13,
+		"upId": 1,
+		"rightId": 2,
+		"downId": 3,
+		"leftId": 3,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 14,
+		"upId": 2,
+		"rightId": 3,
+		"downId": 3,
+		"leftId": 2,
+		"symmetry": "X"
+	},
+	{
+		"tileId": 15,
+		"upId": 3,
+		"rightId": 3,
+		"downId": 3,
+		"leftId": 3,
+		"symmetry": "X"
+	}
+]

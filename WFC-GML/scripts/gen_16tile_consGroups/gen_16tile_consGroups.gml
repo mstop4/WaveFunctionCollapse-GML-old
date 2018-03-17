@@ -1,4 +1,4 @@
-var str = "[";
+var str = "[\n";
 
 // i j
 // k l
@@ -11,22 +11,25 @@ for (var l=0; l<2; l++)
 		{
 			for (var i=0; i<2; i++)
 			{
-				str += "[";
+				str += "\t{\n";
+				// tile id
+				str += "\t\t\"tileId\": " + string(l*8 + k*4 + j*2 + i) + ",\n";
 				// up
-				str += string(j*2 + i) + ",";
+				str += "\t\t\"upId\": " + string(j*2 + i) + ",\n";
 				// right
-				str += string(l*2 + j) + ",";
+				str += "\t\t\"rightId\": " + string(l*2 + j) + ",\n";
 				// down
-				str += string(l*2 + k) + ",";
+				str += "\t\t\"downId\": " + string(l*2 + k) + ",\n";
 				// left
-				str += string(k*2 + i);
-				str += ",\"X\"],";
+				str += "\t\t\"leftId\": " + string(k*2 + i) + ",\n";
+				str += "\t\t\"symmetry\": \"X\"\n";
+				str += "\t},\n";
 			}
 		}
 	}
 }
 
-str = string_delete(str,string_length(str),1);
-str += "]";
+str = string_delete(str,string_length(str)-1,2);
+str += "\n]";
 
 return str;

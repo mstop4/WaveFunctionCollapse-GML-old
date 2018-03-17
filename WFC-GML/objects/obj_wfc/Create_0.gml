@@ -28,7 +28,7 @@ num_tiles = 0;
 base_tile_index[0] = 0;
 base_tile_symmetry[0] = 0;
 tile_filter = ds_list_create();
-//ds_list_add(tile_filter, 1, 2, 4, 8, 6, 9);
+ds_list_add(tile_filter, 2, 3);
 
 load_constraints(symmetries_file,constraints_file);
 
