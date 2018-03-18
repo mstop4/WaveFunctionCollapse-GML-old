@@ -163,6 +163,20 @@
             "varType": 3
         },
         {
+            "id": "8f7f2e5b-8376-4647-9899-b72df68832b4",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "kenney.weights.json",
+            "varName": "weights_file",
+            "varType": 2
+        },
+        {
             "id": "13886713-27b3-43af-8f49-73a5b5db4cbc",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",

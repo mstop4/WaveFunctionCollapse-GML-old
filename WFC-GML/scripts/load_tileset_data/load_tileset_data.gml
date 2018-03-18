@@ -1,12 +1,14 @@
-/// @function  load_constraints_sym(sym_file, cons_file)
-/// @argument  sym_file  
-/// @argument  cons_file 
+/// @function  load_tileset_data(sym_file, cons_file)
+/// @argument  symmetries_file  
+/// @argument  constraints_file 
+/// @argument  weights_file 
 
-var _sym_file = argument[0];
-var _cons_file = argument[1];
+var _symmetries_file = argument[0];
+var _constraints_file = argument[1];
+var _weights_file = argument[2];
 
 // Load symmetry data
-var _json = load_json_stringify(_sym_file);
+var _json = load_json_stringify(_symmetries_file);
 
 if (_json == "")
 {
@@ -17,7 +19,7 @@ if (_json == "")
 var _sym_map = json_decode(_json);
 
 // Load base constraint data
-_json = load_json_stringify(_cons_file);
+_json = load_json_stringify(_constraints_file);
 
 if (_json == "")
 {
@@ -29,16 +31,40 @@ var _json_map = json_decode(_json);
 
 if (_json_map == -1)
 {
-	show_message_async("Error decoding JSON");
+	show_message_async("Error decoding constraints JSON");
 	return false;
 }
 
 var _base_tile_constraints = _json_map[? "default"];
 
+// Load base weights data
+
+_json = load_json_stringify(_weights_file);
+
+if (_json == "")
+{
+	show_message_async("Error loading weights file");
+	return false;
+}
+
+var _json_map = json_decode(_json);
+
+if (_json_map == -1)
+{
+	show_message_async("Error decoding weights JSON");
+	return false;
+}
+
+var _base_tile_weights = _json_map[? "default"];
+var _base_tile_weights_len = ds_list_size(_base_tile_weights);
+
 // Generate constraint data with symmetries
 var _num_base_tile_constraints = ds_list_size(_base_tile_constraints);
 var _num_tile_constraints = 0;
 tile_constraints = ds_list_create();
+
+var _num_tile_occurences;
+_num_tile_occurences[0] = 0;
 
 for (var i=0; i<_num_base_tile_constraints; i++)
 {
@@ -86,6 +112,12 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 					ds_list_mark_as_list(tile_constraints, _num_tile_constraints);
 					base_tile_index[_num_tile_constraints] = _cur_tile_index;
 					base_tile_symmetry[_num_tile_constraints] = _cur_sym;
+					
+					if (array_length_1d(_num_tile_occurences) <= _cur_tile_index)
+						_num_tile_occurences[_cur_tile_index] = 1;
+					else
+						_num_tile_occurences[_cur_tile_index]++;
+						
 					_num_tile_constraints++;
 				}
 			}
@@ -113,5 +145,12 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 }
 
 num_tiles = ds_list_size(tile_constraints);
+
+// Calculate weights for each tile
+for (var i=0; i<num_tiles; i++)
+{
+	base_tile_weight[i] = _base_tile_weights[| base_tile_index[i]] / _num_tile_occurences[base_tile_index[i]];
+}
+
 ds_map_destroy(_json_map);
 return true;

@@ -1,37 +1,37 @@
 /// @function     pick_cell()
-/// @description  Pick a random cell with the lowest entropy > 1
+/// @description  Pick a random cell with the lowest _entropy > 1
 
-var lowest_entropy = num_tiles;
-var lowest_cells = ds_list_create();
-var return_value;
+var _lowest_entropy = num_tiles;
+var _lowest_cells = ds_list_create();
+var _return_value;
 
 for (var i=0; i<tilemap_height; i++)
 {
 	for (var j=0; j<tilemap_width; j++)
 	{
-		var entropy = ds_list_size(tilemap_grid[# j, i]);
+		var _entropy = ds_list_size(tilemap_grid[# j, i]);
 		
-		if (entropy <= lowest_entropy && entropy > 1)
+		if (_entropy <= _lowest_entropy && _entropy > 1)
 		{
-			if (entropy < lowest_entropy)
+			if (_entropy < _lowest_entropy)
 			{
-				ds_list_clear(lowest_cells);
-				lowest_entropy = entropy;
+				ds_list_clear(_lowest_cells);
+				_lowest_entropy = _entropy;
 			}
 			
-			ds_list_add(lowest_cells, [ tilemap_grid[# j, i], j, i ]);
+			ds_list_add(_lowest_cells, [ tilemap_grid[# j, i], j, i ]);
 		}
 	}
 }
 
-if (!ds_list_empty(lowest_cells))
+if (!ds_list_empty(_lowest_cells))
 {
-	ds_list_shuffle(lowest_cells);
-	return_value = lowest_cells[| 0];
+	var _lowest_cells_len = ds_list_size(_lowest_cells);
+	_return_value = _lowest_cells[| irandom(_lowest_cells_len-1)];
 }
 
 else
-	return_value = [ -1, -1, -1 ];
+	_return_value = [ -1, -1, -1 ];
 
-ds_list_destroy(lowest_cells);
-return return_value;
+ds_list_destroy(_lowest_cells);
+return _return_value;

@@ -43,8 +43,27 @@ if (my_state <> genState.idle)
 				// Collapse 
 				var _cell_len = ds_list_size(_cur_cell);
 				entropy -= (_cell_len - 1);
-				ds_list_shuffle(_cur_cell);
-				var _selected_value = _cur_cell[| 0];
+				
+				// Pick weighted random tile
+				var _sum_weights = 0;
+				for (var i=0; i<_cell_len; i++)
+					_sum_weights += base_tile_weight[_cur_cell[| i]];
+					
+				var _chosen_index = -1;
+				var _r = random(_sum_weights);
+				var _running_weight = 0;
+				
+				do
+				{
+					_chosen_index++;
+					_running_weight += base_tile_weight[_cur_cell[| _chosen_index]];
+				} 
+				until (_r <= _running_weight)
+				
+				if (_chosen_index >= _cell_len)
+					show_debug_message("WAT");
+				
+				var _selected_value = _cur_cell[| _chosen_index];
 				ds_list_clear(_cur_cell);
 				_cur_cell[| 0] = _selected_value;
 			

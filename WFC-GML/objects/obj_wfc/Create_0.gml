@@ -27,10 +27,11 @@ tile_constraints = -1;
 num_tiles = 0;
 base_tile_index[0] = 0;
 base_tile_symmetry[0] = 0;
+base_tile_weight[0] = 0;
 tile_filter = ds_list_create();
-ds_list_add(tile_filter, 2, 3);
+//ds_list_add(tile_filter, 2, 3);
 
-load_constraints(symmetries_file,constraints_file);
+load_tileset_data(symmetries_file,constraints_file,weights_file);
 
 // Init tilemap
 tilemap_grid = ds_grid_create(tilemap_width, tilemap_width);
