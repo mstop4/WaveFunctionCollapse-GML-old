@@ -1,6 +1,6 @@
 [
 	{
-		"tileId": 0,
+		"tileId": [0],
 		"upId": 0,
 		"rightId": 0,
 		"downId": 0,
@@ -8,7 +8,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 1,
+		"tileId": [1],
 		"upId": 1,
 		"rightId": 0,
 		"downId": 0,
@@ -16,7 +16,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 2,
+		"tileId": [2],
 		"upId": 2,
 		"rightId": 1,
 		"downId": 0,
@@ -24,7 +24,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 3,
+		"tileId": [3],
 		"upId": 3,
 		"rightId": 1,
 		"downId": 0,
@@ -32,7 +32,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 4,
+		"tileId": [4],
 		"upId": 0,
 		"rightId": 0,
 		"downId": 1,
@@ -40,7 +40,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 5,
+		"tileId": [5],
 		"upId": 1,
 		"rightId": 0,
 		"downId": 1,
@@ -48,7 +48,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 6,
+		"tileId": [6],
 		"upId": 2,
 		"rightId": 1,
 		"downId": 1,
@@ -56,7 +56,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 7,
+		"tileId": [7],
 		"upId": 3,
 		"rightId": 1,
 		"downId": 1,
@@ -64,7 +64,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 8,
+		"tileId": [8],
 		"upId": 0,
 		"rightId": 2,
 		"downId": 2,
@@ -72,7 +72,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 9,
+		"tileId": [9],
 		"upId": 1,
 		"rightId": 2,
 		"downId": 2,
@@ -80,7 +80,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 10,
+		"tileId": [10],
 		"upId": 2,
 		"rightId": 3,
 		"downId": 2,
@@ -88,7 +88,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 11,
+		"tileId": [11],
 		"upId": 3,
 		"rightId": 3,
 		"downId": 2,
@@ -96,7 +96,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 12,
+		"tileId": [12],
 		"upId": 0,
 		"rightId": 2,
 		"downId": 3,
@@ -104,7 +104,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 13,
+		"tileId": [13],
 		"upId": 1,
 		"rightId": 2,
 		"downId": 3,
@@ -112,7 +112,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 14,
+		"tileId": [14],
 		"upId": 2,
 		"rightId": 3,
 		"downId": 3,
@@ -120,7 +120,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 15,
+		"tileId": [15],
 		"upId": 3,
 		"rightId": 3,
 		"downId": 3,
