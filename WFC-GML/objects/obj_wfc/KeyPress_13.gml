@@ -1,4 +1,5 @@
 entropy = 0;
+step_max_time = ideal_step_time;
 start_time = current_time;
 ds_list_clear(process_stack);
 stack_size = 0;

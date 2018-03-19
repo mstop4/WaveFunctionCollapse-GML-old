@@ -360,10 +360,15 @@ if (my_state <> genState.idle)
 				my_state = genState.collapse;
 		}
 		
-	process_time += current_time - _step_start_time;
+		process_time += current_time - _step_start_time;
 	
-	if (process_time >= step_max_time)
-		_time_up = true;
-		
+		if (process_time >= step_max_time)
+		{
+			_time_up = true;
+			/*if (fps_real < room_speed)
+				step_max_time = max(step_max_time - 0.02, 1);
+			else if (fps_real >= room_speed*1.1)
+				step_max_time = min(step_max_time + 0.02, ideal_step_time);*/
+		}
 	}
 }

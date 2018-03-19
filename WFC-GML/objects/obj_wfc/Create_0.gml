@@ -4,7 +4,8 @@ process_stack = ds_list_create();
 stack_size = 0;
 
 process_time = 0;
-step_max_time = 1000 / room_speed;
+ideal_step_time = 1000 / room_speed;
+step_max_time = ideal_step_time;
 
 tilemap_width = room_width div 32;
 tilemap_height = room_height div 32;
@@ -29,7 +30,7 @@ base_tile_index[0] = 0;
 base_tile_symmetry[0] = 0;
 base_tile_weight[0] = 0;
 tile_filter = ds_list_create();
-ds_list_add(tile_filter, 4);
+ds_list_add(tile_filter, 0, 1, 6, 7);
 
 load_tileset_data(symmetries_file,constraints_file,weights_file);
 

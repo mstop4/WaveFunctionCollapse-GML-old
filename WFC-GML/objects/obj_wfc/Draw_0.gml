@@ -1,6 +1,6 @@
 draw_set_color(c_black);
 draw_set_alpha(0.33);
-draw_rectangle(room_width-208,0,room_width,58,false);
+draw_rectangle(room_width-208,0,room_width,74,false);
 
 draw_set_color(c_white);
 draw_set_alpha(1);
@@ -23,3 +23,4 @@ if (time_taken <> -1)
 	draw_text(room_width,16,"Time taken: " + string(time_taken) + "s");
 
 draw_text(room_width,32,"FPS: " + string(fps));
+draw_text(room_width,48,"Time/step: " + string(step_max_time) + " ms");

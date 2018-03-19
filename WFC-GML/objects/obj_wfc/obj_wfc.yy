@@ -238,7 +238,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "filterMode.include",
+            "value": "filterMode.exclude",
             "varName": "filter_mode",
             "varType": 4
         },
