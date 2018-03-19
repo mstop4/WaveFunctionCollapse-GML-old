@@ -140,7 +140,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "baseConstraints\/16-tile.json",
+            "value": "baseConstraints\/pipes.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -182,7 +182,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "weights\/16-tile.weights.json",
+            "value": "weights\/pipes.weights.json",
             "varName": "weights_file",
             "varType": 2
         },
@@ -196,7 +196,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "False",
+            "value": "True",
             "varName": "ignore_weights",
             "varType": 3
         },
@@ -210,7 +210,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_16",
+            "value": "ts_pipes",
             "varName": "tile_set",
             "varType": 5
         },
@@ -224,7 +224,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "4",
+            "value": "1",
             "varName": "tile_index_offset",
             "varType": 1
         },
