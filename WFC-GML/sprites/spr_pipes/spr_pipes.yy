@@ -6,7 +6,7 @@
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 63,
+    "bbox_bottom": 95,
     "bbox_left": 0,
     "bbox_right": 127,
     "bbox_top": 0,
@@ -16,30 +16,30 @@
     "edgeFiltering": false,
     "frames": [
         {
-            "id": "b31979f3-1d6e-4aa9-8023-0fbfb04132ca",
+            "id": "44ae7a46-c540-442b-abc2-9d35f4b0abad",
             "modelName": "GMSpriteFrame",
             "mvc": "1.0",
             "SpriteId": "bd9cd6e1-32c2-4e76-98bb-1f00366cbe74",
             "compositeImage": {
-                "id": "4c4f4071-2b45-4a70-b9eb-aafc7a4f7a81",
+                "id": "166a948c-328b-49b1-a11c-1a921d95e48a",
                 "modelName": "GMSpriteImage",
                 "mvc": "1.0",
-                "FrameId": "b31979f3-1d6e-4aa9-8023-0fbfb04132ca",
+                "FrameId": "44ae7a46-c540-442b-abc2-9d35f4b0abad",
                 "LayerId": "00000000-0000-0000-0000-000000000000"
             },
             "images": [
                 {
-                    "id": "ea38b447-a4a2-4ba5-a5bb-41cc10b33425",
+                    "id": "b652a5e3-e3fb-4f74-90bc-c2f21063ffee",
                     "modelName": "GMSpriteImage",
                     "mvc": "1.0",
-                    "FrameId": "b31979f3-1d6e-4aa9-8023-0fbfb04132ca",
+                    "FrameId": "44ae7a46-c540-442b-abc2-9d35f4b0abad",
                     "LayerId": "6688b54f-a0da-42e3-8ef0-2d9d53061679"
                 },
                 {
-                    "id": "677fa0db-b7a8-4eb4-aa3f-82e14d866556",
+                    "id": "4f30b5df-591d-4844-92e4-24fc87a37950",
                     "modelName": "GMSpriteImage",
                     "mvc": "1.0",
-                    "FrameId": "b31979f3-1d6e-4aa9-8023-0fbfb04132ca",
+                    "FrameId": "44ae7a46-c540-442b-abc2-9d35f4b0abad",
                     "LayerId": "1095ed98-d366-4bb4-875f-50a844e02519"
                 }
             ]
@@ -47,7 +47,7 @@
     ],
     "gridX": 32,
     "gridY": 32,
-    "height": 64,
+    "height": 96,
     "layers": [
         {
             "id": "6688b54f-a0da-42e3-8ef0-2d9d53061679",

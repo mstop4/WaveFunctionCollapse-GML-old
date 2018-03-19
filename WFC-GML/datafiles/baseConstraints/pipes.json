@@ -47,4 +47,20 @@
 		"leftId": 1,
 		"symmetry": "I"
 	},
+	{
+		"tileId": [6],
+		"upId": 1,
+		"rightId": 1,
+		"downId": 1,
+		"leftId": 1,
+		"symmetry": "/"
+	},	
+	{
+		"tileId": [7],
+		"upId": 1,
+		"rightId": 1,
+		"downId": 0,
+		"leftId": 0,
+		"symmetry": "L"
+	},
 ]

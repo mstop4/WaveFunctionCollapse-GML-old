@@ -29,7 +29,7 @@ base_tile_index[0] = 0;
 base_tile_symmetry[0] = 0;
 base_tile_weight[0] = 0;
 tile_filter = ds_list_create();
-ds_list_add(tile_filter, 0, 4, 1);
+ds_list_add(tile_filter, 4);
 
 load_tileset_data(symmetries_file,constraints_file,weights_file);
 
