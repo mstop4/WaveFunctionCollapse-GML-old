@@ -252,8 +252,22 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "True",
+            "value": "False",
             "varName": "realtime_tiling",
+            "varType": 3
+        },
+        {
+            "id": "fd081876-618d-4017-8ac7-0dd80365c8a4",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "True",
+            "varName": "async_mode",
             "varType": 3
         },
         {

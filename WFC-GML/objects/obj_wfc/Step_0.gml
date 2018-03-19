@@ -10,7 +10,7 @@ if (my_state <> genState.idle)
 		
 		if (my_state == genState.collapse)
 		{
-			if (realtime_tiling)
+			if (async_mode && realtime_tiling)
 			{
 				while (!ds_queue_empty(finished_tiles_queue))
 				{
@@ -72,7 +72,7 @@ if (my_state <> genState.idle)
 				ds_list_clear(_cur_cell);
 				_cur_cell[| 0] = _selected_value;
 			
-				if (realtime_tiling)
+				if (async_mode && realtime_tiling)
 					ds_queue_enqueue(finished_tiles_queue, [_cur_cell_x, _cur_cell_y]);
 	
 				// Propagate
@@ -139,6 +139,7 @@ if (my_state <> genState.idle)
 				}
 		
 				my_state = genState.idle;
+				_time_up = true;
 				time_taken = (current_time - start_time) / 1000;
 			}
 		}
@@ -208,7 +209,7 @@ if (my_state <> genState.idle)
 							
 									reset_visited();
 							
-									if (realtime_tiling && ds_list_size(_cur_cell) == 1)
+									if (async_mode && realtime_tiling && ds_list_size(_cur_cell) == 1)
 										ds_queue_enqueue(finished_tiles_queue, [_cur_cell_x, _cur_cell_y]);
 								}
 							}
@@ -242,7 +243,7 @@ if (my_state <> genState.idle)
 							
 									reset_visited();
 							
-									if (realtime_tiling && ds_list_size(_cur_cell) == 1)
+									if (async_mode && realtime_tiling && ds_list_size(_cur_cell) == 1)
 										ds_queue_enqueue(finished_tiles_queue, [_cur_cell_x, _cur_cell_y]);
 								}
 							}
@@ -276,7 +277,7 @@ if (my_state <> genState.idle)
 							
 									reset_visited();
 																			
-									if (realtime_tiling && ds_list_size(_cur_cell) == 1)
+									if (async_mode && realtime_tiling && ds_list_size(_cur_cell) == 1)
 										ds_queue_enqueue(finished_tiles_queue, [_cur_cell_x, _cur_cell_y]);
 								}
 							}
@@ -310,7 +311,7 @@ if (my_state <> genState.idle)
 							
 									reset_visited();
 																			
-									if (realtime_tiling && ds_list_size(_cur_cell) == 1)
+									if (async_mode && realtime_tiling && ds_list_size(_cur_cell) == 1)
 										ds_queue_enqueue(finished_tiles_queue, [_cur_cell_x, _cur_cell_y]);
 								}
 							}
@@ -360,15 +361,18 @@ if (my_state <> genState.idle)
 				my_state = genState.collapse;
 		}
 		
-		process_time += current_time - _step_start_time;
-	
-		if (process_time >= step_max_time)
+		if (async_mode)
 		{
-			_time_up = true;
-			/*if (fps_real < room_speed)
-				step_max_time = max(step_max_time - 0.02, 1);
-			else if (fps_real >= room_speed*1.1)
-				step_max_time = min(step_max_time + 0.02, ideal_step_time);*/
+			process_time += current_time - _step_start_time;
+	
+			if (process_time >= step_max_time)
+			{
+				_time_up = true;
+				/*if (fps < room_speed)
+					step_max_time = max(step_max_time - 0.02, 1);
+				else if (fps >= room_speed*1.1)
+					step_max_time = min(step_max_time + 0.02, ideal_step_time);*/
+			}
 		}
 	}
 }
