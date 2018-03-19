@@ -7,6 +7,9 @@ var _symmetries_file = argument[0];
 var _constraints_file = argument[1];
 var _weights_file = argument[2];
 
+if (ds_exists(tile_constraints, ds_type_list))
+	ds_list_destroy(tile_constraints);
+
 // Load symmetry data
 var _json = load_json_stringify(_symmetries_file);
 
