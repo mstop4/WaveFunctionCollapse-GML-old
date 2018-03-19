@@ -156,7 +156,7 @@ if (my_state <> genState.idle)
 			
 				if (ds_list_size(_cur_cell) == 0)
 				{
-					show_message_async("Error: Cell has no possible state.");
+					show_message_async("Error: Cell (" + string(_cur_cell_x) + ", " + string(_cur_cell_y) + ") has no possible state.");
 					my_state = genState.idle;
 					exit;
 				}
@@ -214,7 +214,7 @@ if (my_state <> genState.idle)
 							}
 			
 							// Right
-							if (_cur_cell_x+1 < tilemap_width && !has_changed)
+							if (!has_changed && _cur_cell_x+1 < tilemap_width)
 							{
 								_cur_tile_constraint = _cur_constraints[| 1];
 								_neighbour_cell = tilemap_grid[# _cur_cell_x+1, _cur_cell_y];
@@ -248,7 +248,7 @@ if (my_state <> genState.idle)
 							}
 			
 							// Down
-							if (_cur_cell_y+1 < tilemap_height && !has_changed)
+							if (!has_changed && _cur_cell_y+1 < tilemap_height)
 							{
 								_cur_tile_constraint = _cur_constraints[| 2];
 								_neighbour_cell = tilemap_grid[# _cur_cell_x, _cur_cell_y+1];
@@ -282,7 +282,7 @@ if (my_state <> genState.idle)
 							}
 			
 							// Left
-							if (_cur_cell_x-1 >= 0 && !has_changed)
+							if (!has_changed && _cur_cell_x-1 >= 0)
 							{
 								_cur_tile_constraint = _cur_constraints[| 3];
 								_neighbour_cell = tilemap_grid[# _cur_cell_x-1, _cur_cell_y];
@@ -316,6 +316,11 @@ if (my_state <> genState.idle)
 							}
 						}
 					}
+					
+					// Propagate further if the adjacent cell is:
+					// - In bounds
+					// - Has not been already visited
+					// - Is not already in process_stack
 			
 					// Up
 					if (_cur_cell_y-1 >= 0 && !visited[_cur_cell_x, _cur_cell_y-1] && 

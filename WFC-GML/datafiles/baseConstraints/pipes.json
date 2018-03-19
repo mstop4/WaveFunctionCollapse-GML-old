@@ -37,7 +37,7 @@
 		"rightId": 1,
 		"downId": 1,
 		"leftId": 0,
-		"symmetry": "T"
+		"symmetry": "E"
 	},
 	{
 		"tileId": [5],
@@ -45,6 +45,6 @@
 		"rightId": 1,
 		"downId": 1,
 		"leftId": 1,
-		"symmetry": "X"
+		"symmetry": "I"
 	},
 ]
