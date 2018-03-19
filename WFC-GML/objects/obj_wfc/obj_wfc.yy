@@ -73,6 +73,16 @@
             "enumb": 32,
             "eventtype": 9,
             "m_owner": "2d39927f-71b7-47fa-8092-373531b9fd4f"
+        },
+        {
+            "id": "b0b50e1b-2aa1-4479-a8e5-f12b8b947357",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": true,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 70,
+            "eventtype": 9,
+            "m_owner": "2d39927f-71b7-47fa-8092-373531b9fd4f"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -130,7 +140,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "baseConstraints\/kenney.json",
+            "value": "baseConstraints\/pipes.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -163,6 +173,34 @@
             "varType": 3
         },
         {
+            "id": "8f7f2e5b-8376-4647-9899-b72df68832b4",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "",
+            "varName": "weights_file",
+            "varType": 2
+        },
+        {
+            "id": "59768cee-d928-4785-8ed8-cd18b24e8d84",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "True",
+            "varName": "ignore_weights",
+            "varType": 3
+        },
+        {
             "id": "13886713-27b3-43af-8f49-73a5b5db4cbc",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -172,7 +210,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_kenney",
+            "value": "ts_pipes",
             "varName": "tile_set",
             "varType": 5
         },
@@ -186,23 +224,9 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "1",
             "varName": "tile_index_offset",
             "varType": 1
-        },
-        {
-            "id": "b6605ca7-86b1-4ee6-ab32-ed6ee8310323",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "True",
-            "varName": "realtime_tiling",
-            "varType": 3
         },
         {
             "id": "250d3658-0657-4726-a574-75cd719b94dc",
@@ -217,6 +241,20 @@
             "value": "filterMode.exclude",
             "varName": "filter_mode",
             "varType": 4
+        },
+        {
+            "id": "b6605ca7-86b1-4ee6-ab32-ed6ee8310323",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "True",
+            "varName": "realtime_tiling",
+            "varType": 3
         },
         {
             "id": "d4ba6863-248f-4685-a18f-68b28903fddd",

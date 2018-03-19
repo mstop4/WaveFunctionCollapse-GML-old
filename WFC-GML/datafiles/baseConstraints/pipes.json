@@ -1,6 +1,6 @@
 [
 	{
-		"tileId": 0,
+		"tileId": [0],
 		"upId": 0,
 		"rightId": 0,
 		"downId": 0,
@@ -8,7 +8,7 @@
 		"symmetry": "X"
 	},
 	{
-		"tileId": 1,
+		"tileId": [1],
 		"upId": 1,
 		"rightId": 0,
 		"downId": 0,
@@ -16,7 +16,7 @@
 		"symmetry": "T"
 	},
 	{
-		"tileId": 2,
+		"tileId": [2],
 		"upId": 1,
 		"rightId": 0,
 		"downId": 1,
@@ -24,7 +24,7 @@
 		"symmetry": "I"
 	},
 	{
-		"tileId": 3,
+		"tileId": [3],
 		"upId": 1,
 		"rightId": 1,
 		"downId": 0,
@@ -32,7 +32,7 @@
 		"symmetry": "L"
 	},
 	{
-		"tileId": 4,
+		"tileId": [4],
 		"upId": 1,
 		"rightId": 1,
 		"downId": 1,
@@ -40,7 +40,7 @@
 		"symmetry": "T"
 	},
 	{
-		"tileId": 5,
+		"tileId": [5],
 		"upId": 1,
 		"rightId": 1,
 		"downId": 1,

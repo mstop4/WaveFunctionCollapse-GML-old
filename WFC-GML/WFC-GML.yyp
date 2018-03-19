@@ -263,6 +263,14 @@
             }
         },
         {
+            "Key": "97ceb527-e1f6-41ee-85e8-f1a7290ad6c1",
+            "Value": {
+                "id": "12c1d8fa-28e4-4e8d-a1cf-6aa2e8b80b7e",
+                "resourcePath": "datafiles_yy\\kenney.weights.json.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "9991a5b6-5eb5-4aac-8cdd-f3c8efa460d5",
             "Value": {
                 "id": "6a271fb0-73e4-46fa-afa4-e6692f132a9a",
@@ -394,7 +402,7 @@
             "Key": "d4e332fd-28b5-4ad8-bf55-656c1a54bea5",
             "Value": {
                 "id": "61f7f4a3-d2f2-414b-8b19-91baae38cef9",
-                "resourcePath": "scripts\\load_constraints\\load_constraints.yy",
+                "resourcePath": "scripts\\load_tileset_data\\load_tileset_data.yy",
                 "resourceType": "GMScript"
             }
         },
