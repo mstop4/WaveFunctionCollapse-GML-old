@@ -110,8 +110,8 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 						_cur_tile_data[? "leftNeighbours"]
 					);
 					
-					for (var k=0; k<4; k++)
-						ds_list_mark_as_list(_wrk_tile_neighbour_data,k);
+					for (var m=0; m<4; m++)
+						ds_list_mark_as_list(_wrk_tile_neighbour_data,m);
 				
 					var _cur_sym = _sym_data[| j];
 		
