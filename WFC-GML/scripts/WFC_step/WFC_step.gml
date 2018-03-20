@@ -203,8 +203,8 @@ if (my_state != genState.idle)
 									_neighbour_constraints = tile_constraints[| _neighbour_tile];
 									_neighbour_tile_constraint = _neighbour_constraints[| 2];
 				
-									if (ds_list_find_index(_cur_tile_constraint, _neighbour_tile_edge) <> -1 &&
-										ds_list_find_index(_neighbour_tile_constraint, _cur_tile_edge) <> -1)
+									if (_cur_tile_constraint[_neighbour_tile_edge] &&
+										_neighbour_tile_constraint[_cur_tile_edge])
 									{
 										_ok = true;
 										break;
@@ -242,8 +242,8 @@ if (my_state != genState.idle)
 									_neighbour_constraints = tile_constraints[| _neighbour_tile];
 									_neighbour_tile_constraint = _neighbour_constraints[| 3];
 				
-									if (ds_list_find_index(_cur_tile_constraint, _neighbour_tile_edge) <> -1 &&
-										ds_list_find_index(_neighbour_tile_constraint, _cur_tile_edge) <> -1)
+									if (_cur_tile_constraint[_neighbour_tile_edge] &&
+										_neighbour_tile_constraint[_cur_tile_edge])
 									{
 										_ok = true;
 										break;
@@ -281,8 +281,8 @@ if (my_state != genState.idle)
 									_neighbour_constraints = tile_constraints[| _neighbour_tile];
 									_neighbour_tile_constraint = _neighbour_constraints[| 0];
 				
-									if (ds_list_find_index(_cur_tile_constraint, _neighbour_tile_edge) <> -1 &&
-										ds_list_find_index(_neighbour_tile_constraint, _cur_tile_edge) <> -1)
+									if (_cur_tile_constraint[_neighbour_tile_edge] &&
+										_neighbour_tile_constraint[_cur_tile_edge])
 									{
 										_ok = true;
 										break;
@@ -320,8 +320,8 @@ if (my_state != genState.idle)
 									_neighbour_constraints = tile_constraints[| _neighbour_tile];
 									_neighbour_tile_constraint = _neighbour_constraints[| 1];
 
-									if (ds_list_find_index(_cur_tile_constraint, _neighbour_tile_edge) <> -1 &&
-										ds_list_find_index(_neighbour_tile_constraint, _cur_tile_edge) <> -1)
+									if (_cur_tile_constraint[_neighbour_tile_edge] &&
+										_neighbour_tile_constraint[_cur_tile_edge])
 									{
 										_ok = true;
 										break;

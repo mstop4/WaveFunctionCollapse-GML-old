@@ -11,7 +11,8 @@
         "fb81b140-91cb-4cde-87dc-d0e4d11d377d",
         "8aa2f8e9-0063-457f-adcb-fdc13be53d50",
         "bd8d2ae0-51bd-4b31-98dd-333b6d41f3e9",
-        "33d19658-8e3e-47df-94f4-e652b024f341"
+        "33d19658-8e3e-47df-94f4-e652b024f341",
+        "9753f958-15e9-4b31-949f-9744b3bf1d36"
     ],
     "filterType": "GMScript",
     "folderName": "lib",

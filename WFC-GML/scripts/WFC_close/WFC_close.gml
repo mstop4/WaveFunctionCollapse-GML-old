@@ -4,9 +4,6 @@ if (ds_exists(tile_constraints, ds_type_list))
 if (ds_exists(tile_edge_ids, ds_type_list))
 	ds_list_destroy(tile_edge_ids);
 	
-if (ds_exists(symmetries_json, ds_type_map))
-	ds_map_destroy(symmetries_json);
-	
 if (ds_exists(constraints_json, ds_type_list))
 	ds_map_destroy(constraints_json);
 	

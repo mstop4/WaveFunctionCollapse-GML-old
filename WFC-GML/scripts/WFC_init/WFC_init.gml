@@ -25,7 +25,6 @@ base_tile_index[0] = 0;
 base_tile_symmetry[0] = 0;
 base_tile_weight[0] = 0;
 
-symmetries_json = -1;
 constraints_json = -1;
 weights_json = -1;
 WFC_load_tileset_data(symmetries_file,constraints_file,weights_file);

@@ -112,7 +112,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "14",
+            "value": "32",
             "varName": "tile_width",
             "varType": 1
         },
@@ -126,7 +126,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "14",
+            "value": "32",
             "varName": "tile_height",
             "varType": 1
         },
@@ -140,7 +140,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "40",
+            "value": "20",
             "varName": "tilemap_width",
             "varType": 1
         },
@@ -154,7 +154,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "40",
+            "value": "20",
             "varName": "tilemap_height",
             "varType": 1
         },
@@ -168,7 +168,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "baseConstraints\/elec.json",
+            "value": "baseConstraints\/pipes.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -210,7 +210,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "weights\/elec.weights.json",
+            "value": "weights\/pipes.weights.json",
             "varName": "weights_file",
             "varType": 2
         },
@@ -238,7 +238,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_elec",
+            "value": "ts_pipes",
             "varName": "tile_set",
             "varType": 5
         },

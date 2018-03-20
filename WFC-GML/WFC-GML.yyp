@@ -327,6 +327,14 @@
             }
         },
         {
+            "Key": "9753f958-15e9-4b31-949f-9744b3bf1d36",
+            "Value": {
+                "id": "a44b2374-7007-45a3-9888-6f320455667d",
+                "resourcePath": "scripts\\WFC_constraints_to_bool_array\\WFC_constraints_to_bool_array.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "97ceb527-e1f6-41ee-85e8-f1a7290ad6c1",
             "Value": {
                 "id": "12c1d8fa-28e4-4e8d-a1cf-6aa2e8b80b7e",
@@ -582,7 +590,8 @@
         "fb81b140-91cb-4cde-87dc-d0e4d11d377d",
         "8aa2f8e9-0063-457f-adcb-fdc13be53d50",
         "bd8d2ae0-51bd-4b31-98dd-333b6d41f3e9",
-        "33d19658-8e3e-47df-94f4-e652b024f341"
+        "33d19658-8e3e-47df-94f4-e652b024f341",
+        "9753f958-15e9-4b31-949f-9744b3bf1d36"
     ],
     "tutorial": ""
 }

@@ -13,9 +13,6 @@ if (ds_exists(tile_constraints, ds_type_list))
 if (ds_exists(tile_edge_ids, ds_type_list))
 	ds_list_destroy(tile_edge_ids);
 	
-if (ds_exists(symmetries_json, ds_type_map))
-	ds_map_destroy(symmetries_json);
-	
 if (ds_exists(constraints_json, ds_type_list))
 	ds_map_destroy(constraints_json);
 	
@@ -31,15 +28,13 @@ if (_json == "")
 	return false;
 }
 
-symmetries_json = json_decode(_json);
+var _sym_map = json_decode(_json);
 
-if (symmetries_json == -1)
+if (_sym_map == -1)
 {
 	show_message_async("Error decoding constraints JSON");
 	return false;
 }
-
-var _sym_map = symmetries_json;
 
 // Load base constraint data
 _json = WFC_load_json_stringify(_constraints_file);
@@ -109,9 +104,6 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 						_cur_tile_data[? "downNeighbours"],
 						_cur_tile_data[? "leftNeighbours"]
 					);
-					
-					for (var m=0; m<4; m++)
-						ds_list_mark_as_list(_wrk_tile_neighbour_data,m);
 				
 					var _cur_sym = _sym_data[| j];
 		
@@ -135,8 +127,22 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 			
 					ds_list_add(tile_edge_ids,_wrk_tile_edge_data);
 					ds_list_mark_as_list(tile_edge_ids, _num_tile_constraints);
+					
+					var _upArr = WFC_constraints_to_bool_array(_wrk_tile_neighbour_data[| 0]);
+					var _rightArr = WFC_constraints_to_bool_array(_wrk_tile_neighbour_data[| 1]);
+					var _downArr = WFC_constraints_to_bool_array(_wrk_tile_neighbour_data[| 2]);
+					var _leftArr = WFC_constraints_to_bool_array(_wrk_tile_neighbour_data[| 3]);
+					
+					ds_list_clear(_wrk_tile_neighbour_data);
+					ds_list_add(_wrk_tile_neighbour_data,
+						_upArr,
+						_rightArr,
+						_downArr,
+						_leftArr
+					);
+					
 					ds_list_add(tile_constraints,_wrk_tile_neighbour_data);
-					ds_list_mark_as_list(tile_constraints, _num_tile_constraints);
+					ds_list_mark_as_list(tile_constraints,_num_tile_constraints);
 					
 					base_tile_index[_num_tile_constraints] = _cur_tile_index;
 					base_tile_symmetry[_num_tile_constraints] = _cur_sym;
@@ -161,18 +167,25 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 					_cur_tile_data[? "downEdgeId"],
 					_cur_tile_data[? "leftEdgeId"]
 				);
-					
-				ds_list_add(_wrk_tile_neighbour_data,
-					_cur_tile_data[? "upNeighbours"],
-					_cur_tile_data[? "rightNeighbours"],
-					_cur_tile_data[? "downNeighbours"],
-					_cur_tile_data[? "leftNeighbours"]
-				);
 			
 				ds_list_add(tile_edge_ids,_wrk_tile_edge_data);
 				ds_list_mark_as_list(tile_edge_ids, _num_tile_constraints);
+
+				var _upArr = WFC_constraints_to_bool_array(_cur_tile_data[? "upNeighbours"]);
+				var _rightArr = WFC_constraints_to_bool_array(_cur_tile_data[? "rightNeighbours"]);
+				var _downArr = WFC_constraints_to_bool_array(_cur_tile_data[? "downNeighbours"]);
+				var _leftArr = WFC_constraints_to_bool_array(_cur_tile_data[? "leftNeighbours"]);
+					
+				ds_list_clear(_wrk_tile_neighbour_data);
+				ds_list_add(_wrk_tile_neighbour_data,
+					_upArr,
+					_rightArr,
+					_downArr,
+					_leftArr
+				);
+					
 				ds_list_add(tile_constraints,_wrk_tile_neighbour_data);
-				ds_list_mark_as_list(tile_constraints, _num_tile_constraints);
+				ds_list_mark_as_list(tile_constraints,_num_tile_constraints);
 					
 				base_tile_index[_num_tile_constraints] = _cur_tile_index;
 				base_tile_symmetry[_num_tile_constraints] = _cur_sym;
@@ -189,6 +202,18 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 }
 
 num_tiles = ds_list_size(tile_constraints);
+
+// Pad out tile constraint arrays
+for (var i=0; i<num_tiles; i++)
+{
+	var _tile = tile_constraints[| i];
+	
+	for (var j=0; j<4; j++)
+	{
+		var _array = _tile[| j];
+		_array[@ num_tiles-1] = false;
+	}
+}
 
 if (!ignore_weights)
 {
@@ -229,4 +254,5 @@ else
 	}
 }
 
+ds_map_destroy(_sym_map);
 return true;
