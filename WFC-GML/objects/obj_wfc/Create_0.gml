@@ -1,5 +1,5 @@
-gml_pragma("forceinline", true);
-randomize();
+//gml_pragma("forceinline", true);
+//randomize();
 
 tilemap_width = room_width div tile_width;
 tilemap_height = room_height div tile_height;
