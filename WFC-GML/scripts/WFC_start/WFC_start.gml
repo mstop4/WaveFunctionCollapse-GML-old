@@ -2,8 +2,6 @@ start_time = current_time;
 entropy = 0;
 error_x = -1;
 error_y = -1;
-ds_list_clear(process_stack);
-stack_size = 0;
 ds_queue_clear(finished_tiles_queue);
 
 for (var i=0; i<tilemap_height; i++)

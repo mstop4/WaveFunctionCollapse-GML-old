@@ -1,6 +1,3 @@
-process_stack = ds_list_create();
-stack_size = 0;
-
 process_time = 0;
 step_max_time = 1000 / room_speed;
 
@@ -11,7 +8,6 @@ tiled = -1;
 my_state = genState.idle;
 entropy = 1;
 max_entropy = 1;
-has_changed = false;
 time_taken = -1;
 start_time = -1;
 error_x = -1;
