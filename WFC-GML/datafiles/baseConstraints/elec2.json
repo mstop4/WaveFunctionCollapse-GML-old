@@ -5,10 +5,10 @@
 		"rightEdgeId": 0,
 		"downEdgeId": 1,
 		"leftEdgeId": 0,
-		"upNeighbours": [1,10,12,13],
-		"rightNeighbours": [0],
-		"downNeighbours": [1,10,12,13],
-		"leftNeighbours": [0],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "I"
 	},
 	{
@@ -17,10 +17,10 @@
 		"rightEdgeId": 10,
 		"downEdgeId": 0,
 		"leftEdgeId": 0,
-		"upNeighbours": [1],
-		"rightNeighbours": [1],
-		"downNeighbours": [0],
-		"leftNeighbours": [0],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "L"
 	},
 	{
@@ -29,10 +29,10 @@
 		"rightEdgeId": 1,
 		"downEdgeId": 1,
 		"leftEdgeId": 1,
-		"upNeighbours": [0],
-		"rightNeighbours": [1,10,12,13],
-		"downNeighbours": [1,10,12,13],
-		"leftNeighbours": [1,10,12,13],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "T"
 	},
 	{
@@ -41,10 +41,10 @@
 		"rightEdgeId": 2,
 		"downEdgeId": 1,
 		"leftEdgeId": 2,
-		"upNeighbours": [1,10,12,13],
-		"rightNeighbours": [2],
-		"downNeighbours": [1,10,12,13],
-		"leftNeighbours": [2],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "I"
 	},	
 	{
@@ -53,10 +53,10 @@
 		"rightEdgeId": 0,
 		"downEdgeId": 1,
 		"leftEdgeId": 0,
-		"upNeighbours": [2],
-		"rightNeighbours": [0],
-		"downNeighbours": [1,10,12,13],
-		"leftNeighbours": [0],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "T"
 	},
 	{
@@ -65,10 +65,10 @@
 		"rightEdgeId": 1,
 		"downEdgeId": 0,
 		"leftEdgeId": 1,
-		"upNeighbours": [0],
-		"rightNeighbours": [1,10,12,13],
-		"downNeighbours": [0],
-		"leftNeighbours": [1,10,12,13],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "I"
 	},
 	{
@@ -77,10 +77,10 @@
 		"rightEdgeId": 0,
 		"downEdgeId": 0,
 		"leftEdgeId": 0,
-		"upNeighbours": [1,10,12,13],
-		"rightNeighbours": [0],
-		"downNeighbours": [0],
-		"leftNeighbours": [0],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "T"
 	},
 	{
@@ -89,10 +89,10 @@
 		"rightEdgeId": 2,
 		"downEdgeId": 0,
 		"leftEdgeId": 2,
-		"upNeighbours": [0],
-		"rightNeighbours": [2],
-		"downNeighbours": [0],
-		"leftNeighbours": [2],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "I"
 	},
 	{
@@ -101,10 +101,10 @@
 		"rightEdgeId": 4,
 		"downEdgeId": 11,
 		"leftEdgeId": 4,
-		"upNeighbours": [1,10,12,13],
-		"rightNeighbours": [4,5],
-		"downNeighbours": [3],
-		"leftNeighbours": [4,5],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "I"
 	},
 	{
@@ -113,10 +113,10 @@
 		"rightEdgeId": 3,
 		"downEdgeId": 3,
 		"leftEdgeId": 3,
-		"upNeighbours": [3,11],
-		"rightNeighbours": [3,11],
-		"downNeighbours": [3,11],
-		"leftNeighbours": [3,11],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "X"
 	},
 	{
@@ -125,10 +125,10 @@
 		"rightEdgeId": 0,
 		"downEdgeId": 5,
 		"leftEdgeId": 5,
-		"upNeighbours": [0],
-		"rightNeighbours": [0],
-		"downNeighbours": [4],
-		"leftNeighbours": [4],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "L"
 	},
 	{
@@ -137,10 +137,10 @@
 		"rightEdgeId": 13,
 		"downEdgeId": 13,
 		"leftEdgeId": 13,
-		"upNeighbours": [1],
-		"rightNeighbours": [1],
-		"downNeighbours": [1],
-		"leftNeighbours": [1],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "/"
 	},	
 	{
@@ -149,10 +149,10 @@
 		"rightEdgeId": 12,
 		"downEdgeId": 0,
 		"leftEdgeId": 0,
-		"upNeighbours": [1],
-		"rightNeighbours": [1],
-		"downNeighbours": [0],
-		"leftNeighbours": [0],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "L"
 	},
 	{
@@ -161,10 +161,10 @@
 		"rightEdgeId": 0,
 		"downEdgeId": 0,
 		"leftEdgeId": 0,
-		"upNeighbours": [0],
-		"rightNeighbours": [0],
-		"downNeighbours": [0],
-		"leftNeighbours": [0],
+		"upNeighbours": [],
+		"rightNeighbours": [],
+		"downNeighbours": [],
+		"leftNeighbours": [],
 		"symmetry": "X"
 	},
 ]

@@ -9,6 +9,18 @@ var _weights_file = argument[2];
 
 if (ds_exists(tile_constraints, ds_type_list))
 	ds_list_destroy(tile_constraints);
+	
+if (ds_exists(tile_edge_ids, ds_type_list))
+	ds_list_destroy(tile_edge_ids);
+	
+if (ds_exists(symmetries_json, ds_type_map))
+	ds_map_destroy(symmetries_json);
+	
+if (ds_exists(constraints_json, ds_type_list))
+	ds_map_destroy(constraints_json);
+	
+if (ds_exists(weights_json, ds_type_list))
+	ds_map_destroy(weights_json);
 
 // Load symmetry data
 var _json = WFC_load_json_stringify(_symmetries_file);
@@ -19,7 +31,15 @@ if (_json == "")
 	return false;
 }
 
-var _sym_map = json_decode(_json);
+symmetries_json = json_decode(_json);
+
+if (symmetries_json == -1)
+{
+	show_message_async("Error decoding constraints JSON");
+	return false;
+}
+
+var _sym_map = symmetries_json;
 
 // Load base constraint data
 _json = WFC_load_json_stringify(_constraints_file);
@@ -30,20 +50,21 @@ if (_json == "")
 	return false;
 }
 
-var _json_map = json_decode(_json);
+constraints_json = json_decode(_json);
 
-if (_json_map == -1)
+if (constraints_json == -1)
 {
 	show_message_async("Error decoding constraints JSON");
 	return false;
 }
 
-var _base_tile_constraints = _json_map[? "default"];
+var _base_tile_constraints = constraints_json[? "default"];
 
 // Generate constraint data with symmetries
 var _num_base_tile_constraints = ds_list_size(_base_tile_constraints);
 var _num_tile_constraints = 0;
 tile_constraints = ds_list_create();
+tile_edge_ids = ds_list_create();
 
 var _num_tile_occurences;
 _num_tile_occurences[0] = 0;
@@ -72,26 +93,51 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 		
 				for (var j=0; j<_num_sym_data; j++)
 				{
-					var _wrk_tile_data = ds_list_create();
+					var _wrk_tile_edge_data = ds_list_create();
+					var _wrk_tile_neighbour_data = ds_list_create();
 				
-					ds_list_add(_wrk_tile_data,
-						_cur_tile_data[? "upId"],
-						_cur_tile_data[? "rightId"],
-						_cur_tile_data[? "downId"],
-						_cur_tile_data[? "leftId"]
+					ds_list_add(_wrk_tile_edge_data,
+						_cur_tile_data[? "upEdgeId"],
+						_cur_tile_data[? "rightEdgeId"],
+						_cur_tile_data[? "downEdgeId"],
+						_cur_tile_data[? "leftEdgeId"]
 					);
+					
+					ds_list_add(_wrk_tile_neighbour_data,
+						_cur_tile_data[? "upNeighbours"],
+						_cur_tile_data[? "rightNeighbours"],
+						_cur_tile_data[? "downNeighbours"],
+						_cur_tile_data[? "leftNeighbours"]
+					);
+					
+					for (var m=0; m<4; m++)
+						ds_list_mark_as_list(_wrk_tile_neighbour_data,m);
 				
 					var _cur_sym = _sym_data[| j];
 		
 					if (_cur_sym & 1)
-						WFC_constraint_mirror(_wrk_tile_data);
+					{
+						WFC_constraint_mirror(_wrk_tile_edge_data);
+						WFC_constraint_mirror(_wrk_tile_neighbour_data);
+					}
+					
 					if (_cur_sym & 2)
-						WFC_constraint_flip(_wrk_tile_data);
+					{
+						WFC_constraint_flip(_wrk_tile_edge_data);
+						WFC_constraint_flip(_wrk_tile_neighbour_data);
+					}
+					
 					if (_cur_sym & 4)
-						WFC_constraint_rotate(_wrk_tile_data);
+					{
+						WFC_constraint_rotate(_wrk_tile_edge_data);
+						WFC_constraint_rotate(_wrk_tile_neighbour_data);
+					}
 			
-					ds_list_add(tile_constraints,_wrk_tile_data);
+					ds_list_add(tile_edge_ids,_wrk_tile_edge_data);
+					ds_list_mark_as_list(tile_edge_ids, _num_tile_constraints);
+					ds_list_add(tile_constraints,_wrk_tile_neighbour_data);
 					ds_list_mark_as_list(tile_constraints, _num_tile_constraints);
+					
 					base_tile_index[_num_tile_constraints] = _cur_tile_index;
 					base_tile_symmetry[_num_tile_constraints] = _cur_sym;
 					
@@ -106,26 +152,36 @@ for (var i=0; i<_num_base_tile_constraints; i++)
 		
 			else
 			{
-				var _wrk_tile_data = ds_list_create();
-			
-				ds_list_add(_wrk_tile_data,
-					_cur_tile_data[? "upId"],
-					_cur_tile_data[? "rightId"],
-					_cur_tile_data[? "downId"],
-					_cur_tile_data[? "leftId"]
+				var _wrk_tile_edge_data = ds_list_create();
+				var _wrk_tile_neighbour_data = ds_list_create();
+				
+				ds_list_add(_wrk_tile_edge_data,
+					_cur_tile_data[? "upEdgeId"],
+					_cur_tile_data[? "rightEdgeId"],
+					_cur_tile_data[? "downEdgeId"],
+					_cur_tile_data[? "leftEdgeId"]
+				);
+					
+				ds_list_add(_wrk_tile_neighbour_data,
+					_cur_tile_data[? "upNeighbours"],
+					_cur_tile_data[? "rightNeighbours"],
+					_cur_tile_data[? "downNeighbours"],
+					_cur_tile_data[? "leftNeighbours"]
 				);
 			
-				ds_list_add(tile_constraints,_wrk_tile_data);
-			
+				ds_list_add(tile_edge_ids,_wrk_tile_edge_data);
+				ds_list_mark_as_list(tile_edge_ids, _num_tile_constraints);
+				ds_list_add(tile_constraints,_wrk_tile_neighbour_data);
 				ds_list_mark_as_list(tile_constraints, _num_tile_constraints);
+					
 				base_tile_index[_num_tile_constraints] = _cur_tile_index;
-				base_tile_symmetry[_num_tile_constraints] = "X";
-				
+				base_tile_symmetry[_num_tile_constraints] = _cur_sym;
+					
 				if (array_length_1d(_num_tile_occurences) <= _cur_tile_index)
 					_num_tile_occurences[_cur_tile_index] = 1;
 				else
 					_num_tile_occurences[_cur_tile_index]++;
-				
+						
 				_num_tile_constraints++;
 			}
 		}
@@ -145,15 +201,15 @@ if (!ignore_weights)
 		return false;
 	}
 
-	var _json_map = json_decode(_json);
+	weights_json = json_decode(_json);
 
-	if (_json_map == -1)
+	if (weights_json == -1)
 	{
 		show_message_async("Error decoding weights JSON");
 		return false;
 	}
 
-	var _base_tile_weights = _json_map[? "default"];
+	var _base_tile_weights = weights_json[? "default"];
 	var _base_tile_weights_len = ds_list_size(_base_tile_weights);
 
 	// Calculate weights for each tile
@@ -173,5 +229,4 @@ else
 	}
 }
 
-ds_map_destroy(_json_map);
 return true;
