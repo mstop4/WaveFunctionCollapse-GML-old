@@ -5,6 +5,9 @@ finished_tiles_queue = ds_queue_create();
 visited = -1;
 tiled = -1;
 
+wave_x = 0;
+wave_y = 0;
+changed = false;
 my_state = genState.idle;
 entropy = 1;
 max_entropy = 1;

@@ -112,7 +112,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "32",
+            "value": "14",
             "varName": "tile_width",
             "varType": 1
         },
@@ -126,7 +126,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "32",
+            "value": "14",
             "varName": "tile_height",
             "varType": 1
         },
@@ -140,7 +140,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "20",
+            "value": "40",
             "varName": "tilemap_width",
             "varType": 1
         },
@@ -154,7 +154,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "20",
+            "value": "40",
             "varName": "tilemap_height",
             "varType": 1
         },
@@ -168,7 +168,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "baseConstraints\/pipes.json",
+            "value": "baseConstraints\/elec.json",
             "varName": "constraints_file",
             "varType": 2
         },
@@ -210,7 +210,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "weights\/pipes.weights.json",
+            "value": "weights\/elec.weights.json",
             "varName": "weights_file",
             "varType": 2
         },
@@ -238,7 +238,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1,
-            "value": "ts_pipes",
+            "value": "ts_elec",
             "varName": "tile_set",
             "varType": 5
         },
@@ -266,7 +266,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "filterMode.exclude",
+            "value": "filterMode.include",
             "varName": "filter_mode",
             "varType": 4
         },

@@ -1,3 +1,4 @@
+draw_set_font(fnt_test);
 draw_set_color(c_black);
 draw_set_alpha(0.33);
 draw_rectangle(room_width-208,0,room_width,74,false);

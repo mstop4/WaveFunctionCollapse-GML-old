@@ -2,6 +2,10 @@ start_time = current_time;
 entropy = 0;
 error_x = -1;
 error_y = -1;
+wave_x = 0;
+wave_y = 0;
+changed = false;
+
 ds_queue_clear(finished_tiles_queue);
 
 for (var i=0; i<tilemap_height; i++)

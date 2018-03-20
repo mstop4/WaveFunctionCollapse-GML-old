@@ -118,175 +118,188 @@ if (my_state != genState.idle)
 	
 		else if (my_state == genState.propagate)
 		{
-			var _changed = false;
-			WFC_reset_visited();
+			var _cur_cell_x = wave_x;
+			var _cur_cell_y = wave_y;
 			
-			for (var _cur_cell_x=0; _cur_cell_x<tilemap_width; _cur_cell_x++)
+			if (_cur_cell_x == 0 && _cur_cell_y == 0)
 			{
-				for (var _cur_cell_y=0; _cur_cell_y<tilemap_height; _cur_cell_y++)
+				changed = false;
+				WFC_reset_visited();
+			}
+			
+			var _cur_cell = tilemap_grid[# _cur_cell_x, _cur_cell_y];
+			
+			if (ds_list_size(_cur_cell) == 0)
+			{
+				show_message_async("Error: Cell (" + string(_cur_cell_x) + ", " + string(_cur_cell_y) + ") has no possible state.");
+				error_x = _cur_cell_x;
+				error_y = _cur_cell_y;
+				my_state = genState.idle;
+						
+				// Try to add any outstanding tiles
+				for (var i=0; i<tilemap_height; i++)
 				{
-					var _cur_cell = tilemap_grid[# _cur_cell_x, _cur_cell_y];
-			
-					if (ds_list_size(_cur_cell) == 0)
+					for (var j=0; j<tilemap_width; j++)
 					{
-						show_message_async("Error: Cell (" + string(_cur_cell_x) + ", " + string(_cur_cell_y) + ") has no possible state.");
-						error_x = _cur_cell_x;
-						error_y = _cur_cell_y;
-						my_state = genState.idle;
-						
-						// Try to add any outstanding tiles
-						for (var i=0; i<tilemap_height; i++)
+						if (!tiled[ j, i])
 						{
-							for (var j=0; j<tilemap_width; j++)
+							var _cell = tilemap_grid[# j, i];
+							if (ds_list_size(_cell) == 1)
 							{
-								if (!tiled[ j, i])
-								{
-									var _cell = tilemap_grid[# j, i];
-									if (ds_list_size(_cell) == 1)
-									{
-										var _data = tilemap_get(tilemap_layer, j, i);
-										var _base_tile = base_tile_index[_cell[| 0]];
-										var _transforms = base_tile_symmetry[_cell[| 0]];
+								var _data = tilemap_get(tilemap_layer, j, i);
+								var _base_tile = base_tile_index[_cell[| 0]];
+								var _transforms = base_tile_symmetry[_cell[| 0]];
 								
-										_data = tile_set_index(_data,_base_tile+tile_index_offset);
-										_data = tile_set_mirror(_data,_transforms & 1);
-										_data = tile_set_flip(_data,_transforms & 2);
-										_data = tile_set_rotate(_data,_transforms & 4);
-										tilemap_set(tilemap_layer, _data, j, i);
-										tiled[ j, i] = true;
-									}
-								}
+								_data = tile_set_index(_data,_base_tile+tile_index_offset);
+								_data = tile_set_mirror(_data,_transforms & 1);
+								_data = tile_set_flip(_data,_transforms & 2);
+								_data = tile_set_rotate(_data,_transforms & 4);
+								tilemap_set(tilemap_layer, _data, j, i);
+								tiled[ j, i] = true;
 							}
-						}
-						
-						exit;
-					}
-						
-					if (ds_list_size(_cur_cell) > 1)
-					{
-						// Check neighbour constraints
-						for (var i=0; i<ds_list_size(_cur_cell); i++)
-						{
-							var _cur_tile = _cur_cell[| i];
-							var _cur_constraints = tile_constraints[| _cur_tile];
-							var _ok;
-			
-							var _cur_tile_constraint, _cur_tile_edge_ids, _cur_tile_edge,
-								_neighbour_cell, _neighbour_tile, _neighbour_constraints,
-								_neighbour_tile_constraint, _neighbour_tile_edge_ids, _neighbour_tile_edge;
-							
-							var _tile_deleted = false;
-							var _cell_changed = false;
-			
-							for (var d=0; d<4; d++)
-							{
-								var _cur_x, _cur_y, _cur_tile_edge_id, _neighbour_tile_edge_id;
-							
-								switch (d)
-								{
-									// Up
-									case 0:
-										_cur_y = _cur_cell_y-1;
-										if (_cur_y < 0)
-											continue;
-										
-										_cur_x = _cur_cell_x;
-										_cur_tile_edge_id = 0;
-										_neighbour_tile_edge_id = 2;
-										break;
-								
-									// Right
-									case 1:
-
-										_cur_x = _cur_cell_x+1;
-										if (_cur_x >= tilemap_width)
-											continue;
-									
-										_cur_y = _cur_cell_y;
-										_cur_tile_edge_id = 1;
-										_neighbour_tile_edge_id = 3;
-										break;
-									
-									// Down
-									case 2:
-										_cur_y = _cur_cell_y+1;
-										if (_cur_y >= tilemap_height)
-											continue;
-										
-										_cur_x = _cur_cell_x;
-										_cur_tile_edge_id = 2;
-										_neighbour_tile_edge_id = 0;
-										break;
-								
-									// Left
-									case 3:
-										_cur_x = _cur_cell_x-1;
-										if (_cur_x < 0)
-											continue;
-										
-										_cur_y = _cur_cell_y;
-										_cur_tile_edge_id = 3;
-										_neighbour_tile_edge_id = 1;
-										break;
-								}
-							
-								if (visited[_cur_x, _cur_y])
-								{
-									_cur_tile_constraint = _cur_constraints[| _cur_tile_edge_id];
-									_cur_tile_edge_ids = tile_edge_ids[| _cur_tile];
-									_cur_tile_edge = _cur_tile_edge_ids[| _cur_tile_edge_id];
-									_neighbour_cell = tilemap_grid[# _cur_x, _cur_y];
-									_ok = false;
-				
-									for (var k=0; k<ds_list_size(_neighbour_cell); k++)
-									{
-										_neighbour_tile = _neighbour_cell[| k];
-										_neighbour_tile_edge_ids = tile_edge_ids[| _neighbour_tile]
-										_neighbour_tile_edge = _neighbour_tile_edge_ids[| _neighbour_tile_edge_id];
-										_neighbour_constraints = tile_constraints[| _neighbour_tile];
-										_neighbour_tile_constraint = _neighbour_constraints[| _neighbour_tile_edge_id];
-				
-										if (ds_list_find_index(_cur_tile_constraint, _neighbour_tile_edge) <> -1 &&
-											ds_list_find_index(_neighbour_tile_constraint, _cur_tile_edge) <> -1)
-										{
-											_ok = true;
-											break;
-										}
-									}
-					
-									if (!_ok)
-									{
-										ds_list_delete(_cur_cell, i);
-										i--;
-										entropy--;
-										_tile_deleted = true;
-										_changed = true;					
-										_cell_changed = true;
-							
-										if (async_mode && realtime_tiling && ds_list_size(_cur_cell) == 1)
-											ds_queue_enqueue(finished_tiles_queue, [_cur_cell_x, _cur_cell_y]);
-										
-										break;
-									}
-								}
-							}
-							
-							visited[_cur_cell_x, _cur_cell_y] = _cell_changed;
 						}
 					}
 				}
+						
+				exit;
+			}
+						
+			if (ds_list_size(_cur_cell) > 1)
+			{
+				// Check neighbour constraints
+				for (var i=0; i<ds_list_size(_cur_cell); i++)
+				{
+					var _cur_tile = _cur_cell[| i];
+					var _cur_constraints = tile_constraints[| _cur_tile];
+					var _ok;
+			
+					var _cur_tile_constraint, _cur_tile_edge_ids, _cur_tile_edge,
+						_neighbour_cell, _neighbour_tile, _neighbour_constraints,
+						_neighbour_tile_constraint, _neighbour_tile_edge_ids, _neighbour_tile_edge;
+							
+					var _tile_deleted = false;
+					var _cell_changed = false;
+			
+					for (var d=0; d<4; d++)
+					{
+						var _cur_x, _cur_y, _cur_tile_edge_id, _neighbour_tile_edge_id;
+							
+						switch (d)
+						{
+							// Up
+							case 0:
+								_cur_y = _cur_cell_y-1;
+								if (_cur_y < 0)
+									continue;
+										
+								_cur_x = _cur_cell_x;
+								_cur_tile_edge_id = 0;
+								_neighbour_tile_edge_id = 2;
+								break;
+								
+							// Right
+							case 1:
+
+								_cur_x = _cur_cell_x+1;
+								if (_cur_x >= tilemap_width)
+									continue;
+									
+								_cur_y = _cur_cell_y;
+								_cur_tile_edge_id = 1;
+								_neighbour_tile_edge_id = 3;
+								break;
+									
+							// Down
+							case 2:
+								_cur_y = _cur_cell_y+1;
+								if (_cur_y >= tilemap_height)
+									continue;
+										
+								_cur_x = _cur_cell_x;
+								_cur_tile_edge_id = 2;
+								_neighbour_tile_edge_id = 0;
+								break;
+								
+							// Left
+							case 3:
+								_cur_x = _cur_cell_x-1;
+								if (_cur_x < 0)
+									continue;
+										
+								_cur_y = _cur_cell_y;
+								_cur_tile_edge_id = 3;
+								_neighbour_tile_edge_id = 1;
+								break;
+						}
+							
+						if (visited[_cur_x, _cur_y])
+						{
+							_cur_tile_constraint = _cur_constraints[| _cur_tile_edge_id];
+							_cur_tile_edge_ids = tile_edge_ids[| _cur_tile];
+							_cur_tile_edge = _cur_tile_edge_ids[| _cur_tile_edge_id];
+							_neighbour_cell = tilemap_grid[# _cur_x, _cur_y];
+							_ok = false;
+				
+							for (var k=0; k<ds_list_size(_neighbour_cell); k++)
+							{
+								_neighbour_tile = _neighbour_cell[| k];
+								_neighbour_tile_edge_ids = tile_edge_ids[| _neighbour_tile]
+								_neighbour_tile_edge = _neighbour_tile_edge_ids[| _neighbour_tile_edge_id];
+								_neighbour_constraints = tile_constraints[| _neighbour_tile];
+								_neighbour_tile_constraint = _neighbour_constraints[| _neighbour_tile_edge_id];
+				
+								if (ds_list_find_index(_cur_tile_constraint, _neighbour_tile_edge) <> -1 &&
+									ds_list_find_index(_neighbour_tile_constraint, _cur_tile_edge) <> -1)
+								{
+									_ok = true;
+									break;
+								}
+							}
+					
+							if (!_ok)
+							{
+								ds_list_delete(_cur_cell, i);
+								i--;
+								entropy--;
+								_tile_deleted = true;				
+								_cell_changed = true;
+							
+								if (async_mode && realtime_tiling && ds_list_size(_cur_cell) == 1)
+									ds_queue_enqueue(finished_tiles_queue, [_cur_cell_x, _cur_cell_y]);
+										
+								break;
+							} //end if !ok
+						} // end if visited
+					} // end for d
+							
+					visited[_cur_cell_x, _cur_cell_y] = _cell_changed;
+				} // end for i
+			} // end if (ds_list_size...
+			
+			wave_x++;
+			
+			if (wave_x >= tilemap_width)
+			{
+				wave_y++;
+				wave_x = 0;
+				
+				if (wave_y >= tilemap_height)
+				{
+					if (!changed)
+						my_state = genState.collapse;
+
+					wave_x = 0;
+					wave_y = 0;
+				}
 			}
 			
-			if (!_changed)
-				my_state = genState.collapse
-		}
-		
-		if (async_mode)
-		{
-			process_time += current_time - _step_start_time;
+			if (async_mode)
+			{
+				process_time += current_time - _step_start_time;
 	
-			if (process_time >= step_max_time)
-				_time_up = true;
-		}
-	}
+				if (process_time >= step_max_time)
+					_time_up = true;
+			}
+		} // end else if (myState == propagate)
+	} // end while !time_up
 }
