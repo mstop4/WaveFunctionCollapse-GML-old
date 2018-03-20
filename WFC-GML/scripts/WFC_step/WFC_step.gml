@@ -180,8 +180,9 @@ if (my_state != genState.idle)
 							var _cur_constraints = tile_constraints[| _cur_tile];
 							var _ok;
 			
-							var _cur_tile_constraint, _neighbour_cell, _neighbour_tile, _neighbour_constraints,
-								_neighbour_tile_constraint;
+							var _cur_tile_constraint, _cur_tile_edge_ids, _cur_tile_edge,
+								_neighbour_cell, _neighbour_tile, _neighbour_constraints,
+								_neighbour_tile_constraint, _neighbour_tile_edge_ids, _neighbour_tile_edge;
 							
 							has_changed = false;
 			
@@ -189,16 +190,21 @@ if (my_state != genState.idle)
 							if (_cur_cell_y-1 >= 0)
 							{
 								_cur_tile_constraint = _cur_constraints[| 0];
+								_cur_tile_edge_ids = tile_edge_ids[| _cur_tile];
+								_cur_tile_edge = _cur_tile_edge_ids[| 0];
 								_neighbour_cell = tilemap_grid[# _cur_cell_x, _cur_cell_y-1];
 								_ok = false;
 				
 								for (var k=0; k<ds_list_size(_neighbour_cell); k++)
 								{
 									_neighbour_tile = _neighbour_cell[| k];
+									_neighbour_tile_edge_ids = tile_edge_ids[| _neighbour_tile]
+									_neighbour_tile_edge = _neighbour_tile_edge_ids[| 2];
 									_neighbour_constraints = tile_constraints[| _neighbour_tile];
 									_neighbour_tile_constraint = _neighbour_constraints[| 2];
 				
-									if (_cur_tile_constraint == _neighbour_tile_constraint)
+									if (ds_list_find_index(_cur_tile_constraint, _neighbour_tile_edge) <> -1 &&
+										ds_list_find_index(_neighbour_tile_constraint, _cur_tile_edge) <> -1)
 									{
 										_ok = true;
 										break;
@@ -223,16 +229,21 @@ if (my_state != genState.idle)
 							if (!has_changed && _cur_cell_x+1 < tilemap_width)
 							{
 								_cur_tile_constraint = _cur_constraints[| 1];
+								_cur_tile_edge_ids = tile_edge_ids[| _cur_tile];
+								_cur_tile_edge = _cur_tile_edge_ids[| 1];
 								_neighbour_cell = tilemap_grid[# _cur_cell_x+1, _cur_cell_y];
 								_ok = false;
 				
 								for (var k=0; k<ds_list_size(_neighbour_cell); k++)
 								{
 									_neighbour_tile = _neighbour_cell[| k];
+									_neighbour_tile_edge_ids = tile_edge_ids[| _neighbour_tile]
+									_neighbour_tile_edge = _neighbour_tile_edge_ids[| 3];
 									_neighbour_constraints = tile_constraints[| _neighbour_tile];
 									_neighbour_tile_constraint = _neighbour_constraints[| 3];
 				
-									if (_cur_tile_constraint == _neighbour_tile_constraint)
+									if (ds_list_find_index(_cur_tile_constraint, _neighbour_tile_edge) <> -1 &&
+										ds_list_find_index(_neighbour_tile_constraint, _cur_tile_edge) <> -1)
 									{
 										_ok = true;
 										break;
@@ -257,16 +268,21 @@ if (my_state != genState.idle)
 							if (!has_changed && _cur_cell_y+1 < tilemap_height)
 							{
 								_cur_tile_constraint = _cur_constraints[| 2];
+								_cur_tile_edge_ids = tile_edge_ids[| _cur_tile];
+								_cur_tile_edge = _cur_tile_edge_ids[| 2];
 								_neighbour_cell = tilemap_grid[# _cur_cell_x, _cur_cell_y+1];
 								_ok = false;
 				
 								for (var k=0; k<ds_list_size(_neighbour_cell); k++)
 								{
 									_neighbour_tile = _neighbour_cell[| k];
+									_neighbour_tile_edge_ids = tile_edge_ids[| _neighbour_tile]
+									_neighbour_tile_edge = _neighbour_tile_edge_ids[| 0];
 									_neighbour_constraints = tile_constraints[| _neighbour_tile];
 									_neighbour_tile_constraint = _neighbour_constraints[| 0];
 				
-									if (_cur_tile_constraint == _neighbour_tile_constraint)
+									if (ds_list_find_index(_cur_tile_constraint, _neighbour_tile_edge) <> -1 &&
+										ds_list_find_index(_neighbour_tile_constraint, _cur_tile_edge) <> -1)
 									{
 										_ok = true;
 										break;
@@ -291,16 +307,21 @@ if (my_state != genState.idle)
 							if (!has_changed && _cur_cell_x-1 >= 0)
 							{
 								_cur_tile_constraint = _cur_constraints[| 3];
+								_cur_tile_edge_ids = tile_edge_ids[| _cur_tile];
+								_cur_tile_edge = _cur_tile_edge_ids[| 3];
 								_neighbour_cell = tilemap_grid[# _cur_cell_x-1, _cur_cell_y];
 								_ok = false;
 				
 								for (var k=0; k<ds_list_size(_neighbour_cell); k++)
 								{
 									_neighbour_tile = _neighbour_cell[| k];
+									_neighbour_tile_edge_ids = tile_edge_ids[| _neighbour_tile]
+									_neighbour_tile_edge = _neighbour_tile_edge_ids[| 1];
 									_neighbour_constraints = tile_constraints[| _neighbour_tile];
 									_neighbour_tile_constraint = _neighbour_constraints[| 1];
 
-									if (_cur_tile_constraint == _neighbour_tile_constraint)
+									if (ds_list_find_index(_cur_tile_constraint, _neighbour_tile_edge) <> -1 &&
+										ds_list_find_index(_neighbour_tile_constraint, _cur_tile_edge) <> -1)
 									{
 										_ok = true;
 										break;

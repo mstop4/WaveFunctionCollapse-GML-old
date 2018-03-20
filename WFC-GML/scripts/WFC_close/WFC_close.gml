@@ -1,5 +1,17 @@
 if (ds_exists(tile_constraints, ds_type_list))
 	ds_list_destroy(tile_constraints);
+	
+if (ds_exists(tile_edge_ids, ds_type_list))
+	ds_list_destroy(tile_edge_ids);
+	
+if (ds_exists(symmetries_json, ds_type_map))
+	ds_map_destroy(symmetries_json);
+	
+if (ds_exists(constraints_json, ds_type_list))
+	ds_map_destroy(constraints_json);
+	
+if (ds_exists(weights_json, ds_type_list))
+	ds_map_destroy(weights_json);
 
 for (var i=0; i<tilemap_height; i++)
 {
