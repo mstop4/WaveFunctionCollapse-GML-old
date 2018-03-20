@@ -108,9 +108,7 @@ if (my_state != genState.idle)
 				}
 			
 				else
-				{
 					show_message_async("Error: Cannot generate tilemap with current tileset.");
-				}
 		
 				my_state = genState.idle;
 				_time_up = true;
@@ -121,7 +119,7 @@ if (my_state != genState.idle)
 		else if (my_state == genState.propagate)
 		{
 			var _changed = false;
-			var _cell_changed = false;
+			WFC_reset_visited();
 			
 			for (var _cur_cell_x=0; _cur_cell_x<tilemap_width; _cur_cell_x++)
 			{
@@ -135,10 +133,34 @@ if (my_state != genState.idle)
 						error_x = _cur_cell_x;
 						error_y = _cur_cell_y;
 						my_state = genState.idle;
+						
+						// Try to add any outstanding tiles
+						for (var i=0; i<tilemap_height; i++)
+						{
+							for (var j=0; j<tilemap_width; j++)
+							{
+								if (!tiled[ j, i])
+								{
+									var _cell = tilemap_grid[# j, i];
+									if (ds_list_size(_cell) == 1)
+									{
+										var _data = tilemap_get(tilemap_layer, j, i);
+										var _base_tile = base_tile_index[_cell[| 0]];
+										var _transforms = base_tile_symmetry[_cell[| 0]];
+								
+										_data = tile_set_index(_data,_base_tile+tile_index_offset);
+										_data = tile_set_mirror(_data,_transforms & 1);
+										_data = tile_set_flip(_data,_transforms & 2);
+										_data = tile_set_rotate(_data,_transforms & 4);
+										tilemap_set(tilemap_layer, _data, j, i);
+										tiled[ j, i] = true;
+									}
+								}
+							}
+						}
+						
 						exit;
 					}
-										
-					_cell_changed = false;
 						
 					if (ds_list_size(_cur_cell) > 1)
 					{
@@ -153,10 +175,10 @@ if (my_state != genState.idle)
 								_neighbour_cell, _neighbour_tile, _neighbour_constraints,
 								_neighbour_tile_constraint, _neighbour_tile_edge_ids, _neighbour_tile_edge;
 							
-							has_changed = false;
+							var _tile_deleted = false;
+							var _cell_changed = false;
 			
-							// Up
-							if (_cur_cell_y-1 >= 0)
+							for (var d=0; d<4; d++)
 							{
 								var _cur_x, _cur_y, _cur_tile_edge_id, _neighbour_tile_edge_id;
 							
@@ -204,7 +226,7 @@ if (my_state != genState.idle)
 										
 										_cur_y = _cur_cell_y;
 										_cur_tile_edge_id = 3;
-										_neighbour_tile_edge_id = 0;
+										_neighbour_tile_edge_id = 1;
 										break;
 								}
 							
@@ -238,8 +260,8 @@ if (my_state != genState.idle)
 										i--;
 										entropy--;
 										_tile_deleted = true;
+										_changed = true;					
 										_cell_changed = true;
-										_changed = true;
 							
 										if (async_mode && realtime_tiling && ds_list_size(_cur_cell) == 1)
 											ds_queue_enqueue(finished_tiles_queue, [_cur_cell_x, _cur_cell_y]);
@@ -248,10 +270,10 @@ if (my_state != genState.idle)
 									}
 								}
 							}
+							
+							visited[_cur_cell_x, _cur_cell_y] = _cell_changed;
 						}
 					}
-								
-					visited[_cur_cell_x, _cur_cell_y] = _cell_changed;
 				}
 			}
 			
