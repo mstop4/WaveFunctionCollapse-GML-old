@@ -103,6 +103,34 @@
     "physicsStartAwake": true,
     "properties": [
         {
+            "id": "fe0cc098-d104-438c-8eb9-ee2e5866aa10",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "32",
+            "varName": "tile_width",
+            "varType": 1
+        },
+        {
+            "id": "d3a0f604-0ca8-4cf2-aef1-a53f1134d567",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "32",
+            "varName": "tile_height",
+            "varType": 1
+        },
+        {
             "id": "619603f6-4161-4412-9b79-caf9448f2ea4",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
@@ -238,7 +266,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "filterMode.exclude",
+            "value": "filterMode.include",
             "varName": "filter_mode",
             "varType": 4
         },
@@ -252,7 +280,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "False",
+            "value": "True",
             "varName": "realtime_tiling",
             "varType": 3
         },

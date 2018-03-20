@@ -12,7 +12,7 @@ if (_file <> "")
 		if (_file <> "")
 		{
 			weights_file = _file;
-			load_tileset_data(symmetries_file,constraints_file,weights_file);
+			WFC_load_tileset_data(symmetries_file,constraints_file,weights_file);
 		}
 		
 		else
@@ -20,7 +20,7 @@ if (_file <> "")
 	}
 	
 	else 
-		load_tileset_data(symmetries_file,constraints_file,weights_file);
+		WFC_load_tileset_data(symmetries_file,constraints_file,weights_file);
 }
 
 else

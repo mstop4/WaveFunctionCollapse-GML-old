@@ -24,3 +24,11 @@ if (time_taken <> -1)
 
 draw_text(room_width,32,"FPS: " + string(fps));
 draw_text(room_width,48,"Time/step: " + string(step_max_time) + " ms");
+
+if (error_x != -1 && error_y != -1)
+{
+	draw_set_color(c_red);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_center);
+	draw_text((error_x + 0.5) * tile_width, (error_y + 0.5) * tile_height, "X");
+}
