@@ -119,6 +119,14 @@
             }
         },
         {
+            "Key": "2b29427b-23c1-4f10-a58c-7961a8201229",
+            "Value": {
+                "id": "7bce96bd-29b4-42dc-b7c0-3cbe670a93dd",
+                "resourcePath": "scripts\\WFC_neighbour_checker_single\\WFC_neighbour_checker_single.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2cd22c30-5f04-49a7-be1c-966d8355ad86",
             "Value": {
                 "id": "b99b44e2-5eed-40ca-8244-3bf6aa5bcaa9",
@@ -327,6 +335,14 @@
             }
         },
         {
+            "Key": "93d464d1-749d-413a-8609-b0cc5a4809fa",
+            "Value": {
+                "id": "286c3dbf-aeb4-4110-af50-e844a397e0ac",
+                "resourcePath": "scripts\\WFC_neighbour_checker\\WFC_neighbour_checker.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "95355ec7-f355-44e7-aa3f-76392619b3a8",
             "Value": {
                 "id": "c2d7f949-1c28-46cf-a8e2-2b37289f7a12",
@@ -495,6 +511,14 @@
             }
         },
         {
+            "Key": "d9673e37-c591-4caa-84fe-0ba4f5f144a6",
+            "Value": {
+                "id": "9ffcf248-343f-4ef1-9b78-6cb85a0f67a4",
+                "resourcePath": "scripts\\WFC_weighted_irandom\\WFC_weighted_irandom.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e42bf5cc-3f46-4d67-a6d0-a4885a11ac3f",
             "Value": {
                 "id": "b81660c7-3166-49c8-ac85-4c76ea0b60d9",
@@ -590,7 +614,10 @@
         "fb81b140-91cb-4cde-87dc-d0e4d11d377d",
         "8aa2f8e9-0063-457f-adcb-fdc13be53d50",
         "bd8d2ae0-51bd-4b31-98dd-333b6d41f3e9",
-        "33d19658-8e3e-47df-94f4-e652b024f341"
+        "33d19658-8e3e-47df-94f4-e652b024f341",
+        "d9673e37-c591-4caa-84fe-0ba4f5f144a6",
+        "93d464d1-749d-413a-8609-b0cc5a4809fa",
+        "2b29427b-23c1-4f10-a58c-7961a8201229"
     ],
     "tutorial": ""
 }

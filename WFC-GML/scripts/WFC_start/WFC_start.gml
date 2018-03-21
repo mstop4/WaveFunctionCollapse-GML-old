@@ -28,4 +28,4 @@ WFC_reset_tiled();
 
 entropy -= tilemap_width*tilemap_height;
 max_entropy = entropy;
-my_state  = genState.collapse;
+my_state  = genState.observe;

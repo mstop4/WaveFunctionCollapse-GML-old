@@ -1,7 +1,7 @@
 enum genState
 {
 	idle,
-	collapse,
+	observe,
 	propagate
 }
 
