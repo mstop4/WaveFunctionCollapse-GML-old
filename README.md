@@ -1,7 +1,5 @@
-# Wave Function Collapse for GameMaker Studio 2
+# Wave Function Collapse for GameMaker Studio 2 (OLD)
 
-A random tilemap generator for GameMaker Studio 2 based on [WaveFunctionCollapse](https://github.com/mxgmn/WaveFunctionCollapse) by mxgmn.
+This repo holds the older implementation of the algorithm for GML.
 
-!["Animation"](https://github.com/mstop4/WaveFunctionCollapse-GML/blob/master/images/pipes.gif)
-
-!["Screenshot 1"](https://github.com/mstop4/WaveFunctionCollapse-GML/blob/master/images/examples.png)
+For the currently active repo, go to **https://github.com/mstop4/WaveFunctionCollapse-GML**
